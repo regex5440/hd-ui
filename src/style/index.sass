@@ -1,0 +1,48 @@
+html,body
+    margin: 0
+    padding: 0
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+:root
+    color-scheme: light dark
+    background-color: #242424
+
+    font-synthesis: none
+    text-rendering: optimizeLegibility
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    -webkit-text-size-adjust: 100%
+
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap')
+header
+    .header__inner
+        position: sticky
+        top: 0
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 40px
+        background-color: black
+        .hdui-logo
+            font-family: 'Michroma', sans-serif
+            font-size: 4rem
+            color: white
+            text-shadow: 0 1px 5px rgba(255, 255, 255, 0.938), 1px 2px 10px rgba(108, 108, 108, 0.203), 2px 4px 17px rgba(255,255,255,0.1)
+            user-select: none
+            cursor: pointer
+
+.showcase__container
+    .showcase__types
+        padding: 40px
+        .showcase__items
+            display: flex
+            gap: 20px
+            justify-content: space-between
+            max-width: 50%
+            align-items: center
+            .item
+                display: flex
+                flex-direction: column
+                align-items: center
+                code
+                    margin-top: 20px

@@ -1,0 +1,49 @@
+// Linear Loader
+$filler-color: rgb(52, 52, 52)
+.loader-container.hdui-linear-loader
+    & [class^=linear]
+        border-radius: 20px
+    .linear-loader-surface
+        position: relative
+        width: 300px
+        height: 7px
+        background-color: white
+        overflow: hidden
+    .linear-loader-animated-surface
+        position: absolute
+        height: 100%
+        width: 100%
+        left: -100%
+        background-color: $filler-color
+        animation: bouncy-size 4s infinite ease-in-out, move 2s infinite linear
+        @keyframes bouncy-size
+            50%
+                scale: 0.3 1
+        @keyframes move
+            100%
+                translate: 200%
+
+// Circular loader
+.hdui-circular-loader
+    svg.circular-loader-surface
+        display: block
+        width: 50px
+        aspect-ratio: 1 / 1
+        overflow: visible
+        animation: rotate 2s linear infinite
+        // background: white
+        @keyframes rotate
+            100%
+                rotate: 360deg
+        circle
+            stroke: $filler-color
+            stroke-width: 3
+            fill: transparent
+            stroke-dasharray: 157
+            stroke-dashoffset: 60
+            animation: resize 2s linear infinite
+        @keyframes resize
+            50%
+                stroke-dashoffset: 140
+            100%
+                stroke-dashoffset: 60
