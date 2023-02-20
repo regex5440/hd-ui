@@ -1,14 +1,5 @@
-import { LinearLoader, CircularLoader, BouncyBalls } from './components/loaders'
-import { HamBurger } from './components/Menu'
-import { renderShowCase } from './ShowCase';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import ShowCase from './components/ShowCase'
 
-renderShowCase();   // Render Showcase
-
-export { renderShowCase }
-
-// Loaders
-export { LinearLoader, CircularLoader, BouncyBalls }
-
-
-// Menu
-export { HamBurger }
+ReactDOM.createRoot(document.getElementById('root')).render(<ShowCase />)

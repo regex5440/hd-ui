@@ -1,6 +1,7 @@
+import React from 'react';
 import './hamburger.sass';
 
-const HamBurger = ({ onOpen, onClose, extendedMotion }) => {
+const HamBurger = ({ onOpen, onClose }) => {
     const clickHandler = e => {
         if (e.target.checked) onOpen(e)
         else onClose(e)

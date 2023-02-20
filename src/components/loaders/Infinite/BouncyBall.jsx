@@ -1,3 +1,4 @@
+import React from 'react';
 import './bouncyball.sass';
 
 const BouncyBalls = () => {

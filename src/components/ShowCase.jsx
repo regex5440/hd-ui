@@ -1,10 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BouncyBalls, CircularLoader, LinearLoader } from './components/loaders'
-import { HamBurger } from './components/Menu'
-import './style/index.sass'
+import { BouncyBalls, CircularLoader, LinearLoader, HamBurger } from './index'
+import '../style/index.sass'
 
-function ShowCase() {
+const ShowCase = () => {
 
     return (
         <div className="showcase__container">
@@ -46,6 +44,4 @@ function ShowCase() {
         </div>)
 }
 
-export function renderShowCase() {
-    ReactDOM.createRoot(document.getElementById('root')).render(<ShowCase />)
-}
+export default ShowCase;

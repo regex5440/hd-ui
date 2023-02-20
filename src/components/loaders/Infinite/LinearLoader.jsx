@@ -1,6 +1,7 @@
+import React from 'react';
 import './infinite.sass';
 
-function LinearLoader() {
+const LinearLoader = () => {
     return (<div className='hdui-linear-loader loader-container'>
         <div className='linear-loader-surface'>
             <div className='linear-loader-animated-surface'></div>
