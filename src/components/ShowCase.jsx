@@ -1,5 +1,5 @@
 import React from 'react'
-import { BouncyBalls, CircularLoader, LinearLoader, HamBurger } from './index'
+import { BouncyBalls, CircularLoader, LinearLoader, HamBurger, TorchBox } from './index'
 import '../style/index.sass'
 
 const ShowCase = () => {
@@ -36,8 +36,18 @@ const ShowCase = () => {
                 <h1>Menu</h1>
                 <div className='showcase__items'>
                     <div className='item'>
-                        <HamBurger onOpen={(e) => console.log('ham open')} onClose={(e) => console.log('ham close')} />
+                        <HamBurger onOpen={() => console.log('ham open')} onClose={() => console.log('ham close')} />
                         <code>{`<HamBurger />`}</code>
+                    </div>
+                </div>
+            </div>
+            <div className='showcase__types'>
+                <h1>Layout</h1>
+                <div className='showcase__items'>
+                    <div className='item'>
+                        <TorchBox style={{ display: 'grid', placeItems: 'center' }}>
+                            <div>Move your mouse over this box</div>
+                        </TorchBox>
                     </div>
                 </div>
             </div>

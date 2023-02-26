@@ -1,0 +1,26 @@
+$torch-color: rgba(173, 173, 173, 0.477)
+.torch-box-container
+    height: 200px
+    width: 300px
+    border: 2px solid $torch-color
+    border-radius: 5px
+    position: relative
+    overflow: hidden
+    box-sizing: border-box
+    .torch-shadow
+        position: absolute
+        height: 100%
+        width: 100%
+        border-radius: 50%
+        box-shadow: 0px 0px 40px $torch-color, -0px -0px 40px $torch-color
+        background-color: $torch-color
+        filter: blur(60px)
+        pointer-events: none
+        appearance: none
+        visibility: hidden
+        opacity: 0
+        transition: visibility 0.5s, opacity 0.5s
+    &__child-container
+        height: 100%
+        width: 100%
+        pointer-events: none
