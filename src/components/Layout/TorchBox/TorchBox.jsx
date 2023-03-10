@@ -1,8 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import './style.sass';
 
-const TorchBox = ({ style, children, height, width }) => {
+const TorchBox = ({ style, children, height, width, shadowColor }) => {
     const torch = useRef(null);
+    useEffect(() => {
+        if (shadowColor) {
+            torch.current.style.background = shadowColor
+        }
+    }, []);
     const showTorch = () => {
         torch.current.style.visibility = 'visible';
         torch.current.style.opacity = 1
@@ -11,12 +16,13 @@ const TorchBox = ({ style, children, height, width }) => {
         torch.current.style.visibility = 'hidden';
         torch.current.style.opacity = 0
     }
-    const moveTorch = (event) => {
-        event.stopPropagation();
-        let torchHeight = torch.current.offsetHeight,
-            torchWidth = torch.current.offsetWidth;
-        const { nativeEvent: e } = event;
-        torch.current.style.transform = `translate(${e.offsetX - torchWidth / 2}px, ${e.offsetY - torchHeight / 2}px)`;
+    const moveTorch = (e) => {
+        e.stopPropagation();
+        const { top, left } = e.currentTarget.getBoundingClientRect();
+        torch.current.animate({
+            left: `${e.clientX - left}px`,
+            top: `${e.clientY - top}px`,
+        }, { duration: 500, fill: 'forwards' })
     }
     const outerBoxStyle = () => {
         if (height && width) return { height, width };
@@ -26,6 +32,7 @@ const TorchBox = ({ style, children, height, width }) => {
 
     return <div className="hd-ui-torchbox torch-box-container" onMouseOver={showTorch} onMouseOut={hideTorch} onMouseMove={moveTorch} style={outerBoxStyle()} >
         <div ref={torch} className="torch-shadow"></div>
+        <div className="torch-shadow-overlay"></div>
         <div className="torch-box-container__child-container" style={style}>
             {children}
         </div>
