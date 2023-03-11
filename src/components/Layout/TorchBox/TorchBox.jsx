@@ -7,10 +7,6 @@ const TorchBox = ({ containerStyle, children, torchStyle }) => {
     useEffect(() => {
         if (torchStyle) {
             if (torchStyle.size) {
-                if (Number.isInteger(torchStyle.size)) {
-                    let width = torchStyle.size * 100;
-
-                }
                 try {
                     Object.entries(torchStyle).forEach(([key, value]) => {
                         if (key !== 'size') {
@@ -52,7 +48,7 @@ const TorchBox = ({ containerStyle, children, torchStyle }) => {
     </div>
 }
 
-TorchBox.prototype = {
+TorchBox.propTypes = {
     children: PropTypes.element,
     containerStyle: PropTypes.object,
     torchStyle: PropTypes.shape({
