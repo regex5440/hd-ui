@@ -49,8 +49,8 @@ const TorchBox = ({ containerStyle, children, torchStyle }) => {
 }
 
 TorchBox.propTypes = {
-    children: PropTypes.element,
-    containerStyle: PropTypes.object,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+    containerStyle: PropTypes.object.isRequired,
     torchStyle: PropTypes.shape({
         size: PropTypes.number.isRequired
     })
