@@ -6,19 +6,17 @@ const TorchBox = ({ containerStyle, children, torchStyle }) => {
     const torch = useRef(null);
     useEffect(() => {
         if (torchStyle) {
-            if (torchStyle.size) {
-                try {
-                    Object.entries(torchStyle).forEach(([key, value]) => {
-                        if (key !== 'size') {
-                            torch.current.style[key] = value;
-                        } else {
-                            torch.current.style.width = `${(torchStyle.size * 100).toFixed(2)}%`;
-                        }
-                    })
-                } catch (e) {
-                    console.error(e);
-                    console.log('Incorrect style format for `torchStyle` prop')
-                }
+            try {
+                Object.entries(torchStyle).forEach(([key, value]) => {
+                    if (key !== 'size') {
+                        torch.current.style[key] = value;
+                    } else {
+                        torch.current.style.width = `${(torchStyle.size * 100).toFixed(2)}%`;
+                    }
+                })
+            } catch (e) {
+                console.error(e);
+                console.log('Incorrect style format for `torchStyle` prop')
             }
         }
     }, []);

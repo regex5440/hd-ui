@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve('src', 'components/index.jsx'),
+      entry: resolve('src', 'components', 'index.jsx'),
       name: 'hd-ui',
       fileName: (format) => `index.${format}.js`
     },
