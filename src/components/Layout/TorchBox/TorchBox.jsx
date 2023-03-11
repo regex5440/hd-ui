@@ -1,11 +1,29 @@
 import React, { useEffect, useRef } from "react";
 import './style.sass';
+import PropTypes from 'prop-types';
 
-const TorchBox = ({ style, children, height, width, shadowColor }) => {
+const TorchBox = ({ containerStyle, children, torchStyle }) => {
     const torch = useRef(null);
     useEffect(() => {
-        if (shadowColor) {
-            torch.current.style.background = shadowColor
+        if (torchStyle) {
+            if (torchStyle.size) {
+                if (Number.isInteger(torchStyle.size)) {
+                    let width = torchStyle.size * 100;
+
+                }
+                try {
+                    Object.entries(torchStyle).forEach(([key, value]) => {
+                        if (key !== 'size') {
+                            torch.current.style[key] = value;
+                        } else {
+                            torch.current.style.width = `${(torchStyle.size * 100).toFixed(2)}%`;
+                        }
+                    })
+                } catch (e) {
+                    console.error(e);
+                    console.log('Incorrect style format for `torchStyle` prop')
+                }
+            }
         }
     }, []);
     const showTorch = () => {
@@ -24,19 +42,22 @@ const TorchBox = ({ style, children, height, width, shadowColor }) => {
             top: `${e.clientY - top}px`,
         }, { duration: 500, fill: 'forwards' })
     }
-    const outerBoxStyle = () => {
-        if (height && width) return { height, width };
-        else if (height) return { height };
-        else if (width) return { width };
-    }
 
-    return <div className="hd-ui-torchbox torch-box-container" onMouseOver={showTorch} onMouseOut={hideTorch} onMouseMove={moveTorch} style={outerBoxStyle()} >
+    return <div className="hd-ui-torchbox torch-box-container" onMouseOver={showTorch} onMouseOut={hideTorch} onMouseMove={moveTorch} >
         <div ref={torch} className="torch-shadow"></div>
         <div className="torch-shadow-overlay"></div>
-        <div className="torch-box-container__child-container" style={style}>
+        <div className="torch-box-container__child-container" style={containerStyle}>
             {children}
         </div>
     </div>
+}
+
+TorchBox.prototype = {
+    children: PropTypes.element,
+    containerStyle: PropTypes.object,
+    torchStyle: PropTypes.shape({
+        size: PropTypes.number.isRequired
+    })
 }
 
 export default TorchBox;

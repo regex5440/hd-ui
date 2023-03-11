@@ -45,7 +45,7 @@ const ShowCase = () => {
                 <h1>Layout</h1>
                 <div className='showcase__items'>
                     <div className='item'>
-                        <TorchBox style={{ display: 'grid', placeItems: 'center' }}>
+                        <TorchBox containerStyle={{ display: 'grid', placeItems: 'center', width: '300px', height: '200px' }} torchStyle={{ size: 0 }} >
                             <div>Move your mouse over this box</div>
                         </TorchBox>
                     </div>
