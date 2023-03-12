@@ -19,6 +19,7 @@
     "extends": "react-app"
   },
   "peerDependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -30,10 +31,6 @@
     "eslint-plugin-react": "^7.32.2",
     "sass": "^1.57.1",
     "vite": "^4.0.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.8.1",
-    "react-vite-library": "^0.0.2"
   },
   "exports": {
     ".": {
