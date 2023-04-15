@@ -13,7 +13,7 @@ interface TorchBoxProps {
   torchStyle?: {
     size: number;
   } & CSSProperties;
-  containerStyle?: CSSProperties;
+  containerStyle: CSSProperties;
 }
 
 const TorchBox = ({ containerStyle, children, torchStyle }: TorchBoxProps) => {

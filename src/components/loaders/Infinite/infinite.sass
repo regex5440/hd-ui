@@ -30,7 +30,7 @@ $filler-color: rgb(52, 52, 52)
         width: 50px
         aspect-ratio: 1 / 1
         overflow: visible
-        animation: rotate 2s linear infinite
+        animation: rotate 1.8s linear infinite
         // background: white
         @keyframes rotate
             100%
@@ -39,11 +39,12 @@ $filler-color: rgb(52, 52, 52)
             stroke: $filler-color
             stroke-width: 3
             fill: transparent
-            stroke-dasharray: 157
-            stroke-dashoffset: 60
-            animation: resize 2s linear infinite
+            stroke-dasharray: 60px, 156.07px
+            stroke-dashoffset: 100px
+            animation: resize 1.4s linear infinite
         @keyframes resize
             50%
-                stroke-dashoffset: 140
+                stroke-dashoffset: 50px
+                stroke-dasharray: 140px, 156.07px
             100%
-                stroke-dashoffset: 60
+                stroke-dashoffset: -120px
