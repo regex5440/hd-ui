@@ -1,12 +1,6 @@
-import React from "react";
-import {
-  BouncyBalls,
-  CircularLoader,
-  LinearLoader,
-  HamBurger,
-  TorchBox,
-} from "./index";
-import "../style/index.sass";
+import React from 'react'
+import { BouncyBalls, CircularLoader, LinearLoader, HamBurger, TorchBox } from './'
+import '../style/index.sass'
 
 const ShowCase = () => {
   return (
@@ -41,8 +35,8 @@ const ShowCase = () => {
         <div className="showcase__items">
           <div className="item">
             <HamBurger
-              onOpen={() => console.log("ham open")}
-              onClose={() => console.log("ham close")}
+              onOpen={() => console.log('ham open')}
+              onClose={() => console.log('ham close')}
             />
             <code>{`<HamBurger />`}</code>
           </div>
@@ -54,10 +48,10 @@ const ShowCase = () => {
           <div className="item">
             <TorchBox
               containerStyle={{
-                display: "grid",
-                placeItems: "center",
-                width: "300px",
-                height: "200px",
+                display: 'grid',
+                placeItems: 'center',
+                width: '300px',
+                height: '200px',
               }}
               torchStyle={{ size: 1 }}
             >
@@ -67,7 +61,7 @@ const ShowCase = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ShowCase;
+export default ShowCase
