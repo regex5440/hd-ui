@@ -1,10 +1,10 @@
-import xe, { useRef as Ce, useEffect as Pe } from "react";
+import Ce, { useRef as we, useEffect as Pe } from "react";
 var U = {}, lr = {
   get exports() {
     return U;
   },
-  set exports(p) {
-    U = p;
+  set exports(d) {
+    U = d;
   }
 }, A = {};
 /**
@@ -21,18 +21,18 @@ function fr() {
   if (Oe)
     return A;
   Oe = 1;
-  var p = xe, b = Symbol.for("react.element"), y = Symbol.for("react.fragment"), u = Object.prototype.hasOwnProperty, k = p.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, N = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function C(d, l, _) {
-    var g, R = {}, w = null, W = null;
-    _ !== void 0 && (w = "" + _), l.key !== void 0 && (w = "" + l.key), l.ref !== void 0 && (W = l.ref);
+  var d = Ce, b = Symbol.for("react.element"), y = Symbol.for("react.fragment"), u = Object.prototype.hasOwnProperty, k = d.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, N = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function w(v, l, _) {
+    var g, R = {}, x = null, W = null;
+    _ !== void 0 && (x = "" + _), l.key !== void 0 && (x = "" + l.key), l.ref !== void 0 && (W = l.ref);
     for (g in l)
       u.call(l, g) && !N.hasOwnProperty(g) && (R[g] = l[g]);
-    if (d && d.defaultProps)
-      for (g in l = d.defaultProps, l)
+    if (v && v.defaultProps)
+      for (g in l = v.defaultProps, l)
         R[g] === void 0 && (R[g] = l[g]);
-    return { $$typeof: b, type: d, key: w, ref: W, props: R, _owner: k.current };
+    return { $$typeof: b, type: v, key: x, ref: W, props: R, _owner: k.current };
   }
-  return A.Fragment = y, A.jsx = C, A.jsxs = C, A;
+  return A.Fragment = y, A.jsx = w, A.jsxs = w, A;
 }
 var $ = {};
 /**
@@ -44,17 +44,17 @@ var $ = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var we;
+var xe;
 function dr() {
-  return we || (we = 1, process.env.NODE_ENV !== "production" && function() {
-    var p = xe, b = Symbol.for("react.element"), y = Symbol.for("react.portal"), u = Symbol.for("react.fragment"), k = Symbol.for("react.strict_mode"), N = Symbol.for("react.profiler"), C = Symbol.for("react.provider"), d = Symbol.for("react.context"), l = Symbol.for("react.forward_ref"), _ = Symbol.for("react.suspense"), g = Symbol.for("react.suspense_list"), R = Symbol.for("react.memo"), w = Symbol.for("react.lazy"), W = Symbol.for("react.offscreen"), Q = Symbol.iterator, Se = "@@iterator";
+  return xe || (xe = 1, process.env.NODE_ENV !== "production" && function() {
+    var d = Ce, b = Symbol.for("react.element"), y = Symbol.for("react.portal"), u = Symbol.for("react.fragment"), k = Symbol.for("react.strict_mode"), N = Symbol.for("react.profiler"), w = Symbol.for("react.provider"), v = Symbol.for("react.context"), l = Symbol.for("react.forward_ref"), _ = Symbol.for("react.suspense"), g = Symbol.for("react.suspense_list"), R = Symbol.for("react.memo"), x = Symbol.for("react.lazy"), W = Symbol.for("react.offscreen"), Q = Symbol.iterator, Se = "@@iterator";
     function je(e) {
       if (e === null || typeof e != "object")
         return null;
       var r = Q && e[Q] || e[Se];
       return typeof r == "function" ? r : null;
     }
-    var P = p.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    var P = d.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     function h(e) {
       {
         for (var r = arguments.length, t = new Array(r > 1 ? r - 1 : 0), n = 1; n < r; n++)
@@ -75,7 +75,7 @@ function dr() {
     var Ne = !1, Fe = !1, De = !1, Ae = !1, $e = !1, ee;
     ee = Symbol.for("react.module.reference");
     function Ie(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === u || e === N || $e || e === k || e === _ || e === g || Ae || e === W || Ne || Fe || De || typeof e == "object" && e !== null && (e.$$typeof === w || e.$$typeof === R || e.$$typeof === C || e.$$typeof === d || e.$$typeof === l || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === u || e === N || $e || e === k || e === _ || e === g || Ae || e === W || Ne || Fe || De || typeof e == "object" && e !== null && (e.$$typeof === x || e.$$typeof === R || e.$$typeof === w || e.$$typeof === v || e.$$typeof === l || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -114,10 +114,10 @@ function dr() {
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case d:
+          case v:
             var r = e;
             return re(r) + ".Consumer";
-          case C:
+          case w:
             var t = e;
             return re(t._context) + ".Provider";
           case l:
@@ -125,7 +125,7 @@ function dr() {
           case R:
             var n = e.displayName || null;
             return n !== null ? n : T(e.type) || "Memo";
-          case w: {
+          case x: {
             var i = e, s = i._payload, o = i._init;
             try {
               return T(o(s));
@@ -136,7 +136,7 @@ function dr() {
         }
       return null;
     }
-    var x = Object.assign, F = 0, te, ne, ae, oe, ie, se, ue;
+    var C = Object.assign, F = 0, te, ne, ae, oe, ie, se, ue;
     function ce() {
     }
     ce.__reactDisabledLog = !0;
@@ -172,25 +172,25 @@ function dr() {
             writable: !0
           };
           Object.defineProperties(console, {
-            log: x({}, e, {
+            log: C({}, e, {
               value: te
             }),
-            info: x({}, e, {
+            info: C({}, e, {
               value: ne
             }),
-            warn: x({}, e, {
+            warn: C({}, e, {
               value: ae
             }),
-            error: x({}, e, {
+            error: C({}, e, {
               value: oe
             }),
-            group: x({}, e, {
+            group: C({}, e, {
               value: ie
             }),
-            groupCollapsed: x({}, e, {
+            groupCollapsed: C({}, e, {
               value: se
             }),
-            groupEnd: x({}, e, {
+            groupEnd: C({}, e, {
               value: ue
             })
           });
@@ -314,7 +314,7 @@ function dr() {
             return Be(e.render);
           case R:
             return M(e.type, r, t);
-          case w: {
+          case x: {
             var n = e, i = n._payload, s = n._init;
             try {
               return M(s(i), r, t);
@@ -631,61 +631,71 @@ Check the top-level render call using <` + t + ">.");
     $.Fragment = u, $.jsx = ur, $.jsxs = cr;
   }()), $;
 }
-(function(p) {
-  process.env.NODE_ENV === "production" ? p.exports = fr() : p.exports = dr();
+(function(d) {
+  process.env.NODE_ENV === "production" ? d.exports = fr() : d.exports = dr();
 })(lr);
-const v = U.jsx, I = U.jsxs;
-const pr = () => /* @__PURE__ */ v("div", { className: "hdui-linear-loader loader-container", children: /* @__PURE__ */ v("div", { className: "linear-loader-surface", children: /* @__PURE__ */ v("div", { className: "linear-loader-animated-surface" }) }) }), hr = () => /* @__PURE__ */ v("div", { className: "hdui-circular-loader loader-container", children: /* @__PURE__ */ I("svg", { className: "circular-loader-surface", children: [
-  /* @__PURE__ */ v("circle", { cx: "50%", cy: "50%", r: "50%" }),
-  /* @__PURE__ */ v("div", { className: "circular-loader-animated-surface", children: "H" })
+const p = U.jsx, I = U.jsxs;
+const pr = () => /* @__PURE__ */ p("div", { className: "hdui-linear-loader loader-container", children: /* @__PURE__ */ p("div", { className: "linear-loader-surface", children: /* @__PURE__ */ p("div", { className: "linear-loader-animated-surface" }) }) }), hr = (d) => /* @__PURE__ */ p("div", { className: "hdui-circular-loader loader-container", children: /* @__PURE__ */ I("svg", { className: "circular-loader-surface", children: [
+  /* @__PURE__ */ p("circle", { cx: "50%", cy: "50%", r: "50%", stroke: d.backgroundColor }),
+  /* @__PURE__ */ p(
+    "circle",
+    {
+      cx: "50%",
+      cy: "50%",
+      r: "50%",
+      className: "cover",
+      stroke: d.loaderColor || "rgb(52, 52, 52)"
+    }
+  ),
+  /* @__PURE__ */ p("div", { className: "circular-loader-animated-surface", children: "H" })
 ] }) });
-const mr = ({ ballColor: p, containerColor: b }) => {
-  const y = Ce(null);
+const mr = ({ ballColor: d, containerColor: b }) => {
+  const y = we(null);
   return Pe(() => {
-    y.current && (p && y.current.style.setProperty(
+    y.current && (d && y.current.style.setProperty(
       "--bouncyBallColor",
-      p
+      d
     ), b && y.current.style.setProperty(
       "--bouncyBallContainerColor",
       b
     ));
   }, []), /* @__PURE__ */ I("div", { className: "hd-ui-bouncy-loader loader-container", ref: y, children: [
-    /* @__PURE__ */ v("div", { className: "ball" }),
-    /* @__PURE__ */ v("div", { className: "ball" }),
-    /* @__PURE__ */ v("div", { className: "ball" }),
-    /* @__PURE__ */ v("div", { className: "ball" })
+    /* @__PURE__ */ p("div", { className: "ball" }),
+    /* @__PURE__ */ p("div", { className: "ball" }),
+    /* @__PURE__ */ p("div", { className: "ball" }),
+    /* @__PURE__ */ p("div", { className: "ball" })
   ] });
 };
-const br = ({ onOpen: p, onClose: b }) => /* @__PURE__ */ I("div", { className: "hd-ui-hamurger hamburger-container", children: [
-  /* @__PURE__ */ v(
+const br = ({ onOpen: d, onClose: b }) => /* @__PURE__ */ I("div", { className: "hd-ui-hamurger hamburger-container", children: [
+  /* @__PURE__ */ p(
     "input",
     {
       type: "checkbox",
       id: "ham-menu1",
       hidden: !0,
       onChange: (u) => {
-        u.target.checked ? p && p(u) : b && b(u);
+        u.target.checked ? d && d(u) : b && b(u);
       },
       title: "HamBurger"
     }
   ),
   /* @__PURE__ */ I("label", { className: "container__inner", htmlFor: "ham-menu1", children: [
-    /* @__PURE__ */ v("div", { className: "stroke1 stroke" }),
-    /* @__PURE__ */ v("div", { className: "stroke2 stroke" }),
-    /* @__PURE__ */ v("div", { className: "stroke3 stroke" })
+    /* @__PURE__ */ p("div", { className: "stroke1 stroke" }),
+    /* @__PURE__ */ p("div", { className: "stroke2 stroke" }),
+    /* @__PURE__ */ p("div", { className: "stroke3 stroke" })
   ] })
 ] });
-const yr = ({ containerStyle: p, children: b, torchStyle: y }) => {
-  const u = Ce(null);
+const yr = ({ containerStyle: d, children: b, torchStyle: y }) => {
+  const u = we(null);
   return Pe(() => {
     if (y)
       try {
-        let d = "";
+        let v = "";
         Object.entries(y).forEach(([l, _]) => {
-          l !== "size" ? d += `${l}:${_};` : d += `width: ${(Number(y.size) * 100).toFixed(2)}%;`;
-        }), u.current && u.current.setAttribute("style", d);
-      } catch (d) {
-        console.error(d), console.log("Incorrect style format for `torchStyle` prop");
+          l !== "size" ? v += `${l}:${_};` : v += `width: ${(Number(y.size) * 100).toFixed(2)}%;`;
+        }), u.current && u.current.setAttribute("style", v);
+      } catch (v) {
+        console.error(v), console.log("Incorrect style format for `torchStyle` prop");
       }
   }, []), /* @__PURE__ */ I(
     "div",
@@ -697,25 +707,25 @@ const yr = ({ containerStyle: p, children: b, torchStyle: y }) => {
       onMouseOut: () => {
         u.current && (u.current.style.visibility = "hidden", u.current.style.opacity = "0");
       },
-      onMouseMove: (d) => {
-        d.stopPropagation();
-        const { top: l, left: _ } = d.currentTarget.getBoundingClientRect();
+      onMouseMove: (v) => {
+        v.stopPropagation();
+        const { top: l, left: _ } = v.currentTarget.getBoundingClientRect();
         u.current && u.current.animate(
           {
-            left: `${d.clientX - _}px`,
-            top: `${d.clientY - l}px`
+            left: `${v.clientX - _}px`,
+            top: `${v.clientY - l}px`
           },
           { duration: 500, fill: "forwards" }
         );
       },
       children: [
-        /* @__PURE__ */ v("div", { ref: u, className: "torch-shadow" }),
-        /* @__PURE__ */ v("div", { className: "torch-shadow-overlay" }),
-        /* @__PURE__ */ v(
+        /* @__PURE__ */ p("div", { ref: u, className: "torch-shadow" }),
+        /* @__PURE__ */ p("div", { className: "torch-shadow-overlay" }),
+        /* @__PURE__ */ p(
           "div",
           {
             className: "torch-box-container__child-container",
-            style: p,
+            style: d,
             children: b
           }
         )

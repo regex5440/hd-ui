@@ -26,6 +26,8 @@ $filler-color: rgb(52, 52, 52)
 // Circular loader
 .hdui-circular-loader
     svg.circular-loader-surface
+        --outerCircle: transparent
+        --innerCircle: transparent
         display: block
         width: 50px
         aspect-ratio: 1 / 1
@@ -36,9 +38,10 @@ $filler-color: rgb(52, 52, 52)
             100%
                 rotate: 360deg
         circle
-            stroke: $filler-color
-            stroke-width: 3
+            stroke-width: 4
             fill: transparent
+        .cover
+            stroke-width: 3
             stroke-dasharray: 60px, 156.07px
             stroke-dashoffset: 100px
             animation: resize 1.4s linear infinite
