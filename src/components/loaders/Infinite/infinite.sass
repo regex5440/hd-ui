@@ -28,8 +28,6 @@ $filler-color: rgb(52, 52, 52)
     svg.circular-loader-surface
         --outerCircle: transparent
         --innerCircle: transparent
-        display: block
-        width: 50px
         aspect-ratio: 1 / 1
         overflow: visible
         animation: rotate 1.8s linear infinite
@@ -42,12 +40,14 @@ $filler-color: rgb(52, 52, 52)
             fill: transparent
         .cover
             stroke-width: 3
-            stroke-dasharray: 60px, 156.07px
-            stroke-dashoffset: 100px
-            animation: resize 1.4s linear infinite
+            animation: resize 1.5s ease-in-out infinite
         @keyframes resize
+            0%
+                stroke-dasharray: 1px, var(--dasharray)
+                stroke-dashoffset: 0
             50%
-                stroke-dashoffset: 50px
-                stroke-dasharray: 140px, 156.07px
+                stroke-dashoffset: calc(-0.2 * var(--dasharray))
+                stroke-dasharray: calc(0.9 * var(--dasharray)) ,var(--dasharray)
             100%
-                stroke-dashoffset: -120px
+                stroke-dashoffset: calc(-1 * var(--dasharray))
+                stroke-dasharray: calc(1 * var(--dasharray)) ,var(--dasharray)

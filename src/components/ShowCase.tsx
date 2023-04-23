@@ -26,7 +26,7 @@ const ShowCase = () => {
           </div>
 
           <div className="item">
-            <CircularLoader />
+            <CircularLoader width={40} />
             <code>{`<CircularLoader />`}</code>
           </div>
 
