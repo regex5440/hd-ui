@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BouncyBalls,
   CircularLoader,
@@ -7,8 +7,10 @@ import {
   TorchBox,
 } from "./";
 import "../style/index.sass";
+import { LazyLoader } from "./Utilities";
 
 const ShowCase = () => {
+  const [lazyLoaderEOD, setLazyLoaderEOD] = useState(false);
   return (
     <div className="showcase__container">
       <header>
@@ -63,6 +65,25 @@ const ShowCase = () => {
             >
               <div>Move your mouse over this box</div>
             </TorchBox>
+            <code>{`<TorchBox />`}</code>
+          </div>
+        </div>
+      </div>
+      <div className="showcase__types">
+        <h1>Utilities</h1>
+        <div className="showcase__items">
+          <div className="item">
+            <LazyLoader
+              endOfData={lazyLoaderEOD}
+              Loader={<CircularLoader width={40} />}
+              onVisibleHandler={() => {
+                setTimeout(() => {
+                  setLazyLoaderEOD(true);
+                }, 3000);
+              }}
+            />
+            {lazyLoaderEOD && <div>Data Loaded!</div>}
+            <code>{`<LazyLoader />`}</code>
           </div>
         </div>
       </div>
