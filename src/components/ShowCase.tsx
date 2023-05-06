@@ -5,9 +5,9 @@ import {
   LinearLoader,
   HamBurger,
   TorchBox,
+  LazyLoader,
 } from "./";
 import "../style/index.sass";
-import { LazyLoader } from "./Utilities";
 
 const ShowCase = () => {
   const [lazyLoaderEOD, setLazyLoaderEOD] = useState(false);
