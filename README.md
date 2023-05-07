@@ -1,4 +1,8 @@
 # HD-UI
+> Spend more of your time in your idea rathar than building the time consuming small components or utilities. Because it's: 
+> - Manually Designed
+> - Highly Customizable
+> - Have TS support
 ### Requisites
 ```
 Latest node >= 18.14
