@@ -2,9 +2,9 @@ html,body
     margin: 0
     padding: 0
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-
-:root
     color-scheme: light dark
+
+#root
     background-color: #242424
 
     font-synthesis: none
@@ -64,3 +64,8 @@ header
                 height: 100%
                 code
                     margin-top: 20px
+
+//Specific design for small components in ShowCase
+.showcase__container
+    button.modal-open-cta:active
+        box-shadow: 0 1px 2px rgba(125,125,125,0.4) !important

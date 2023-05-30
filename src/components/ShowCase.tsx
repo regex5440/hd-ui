@@ -6,11 +6,20 @@ import {
   HamBurger,
   TorchBox,
   LazyLoader,
+  Modal,
 } from "./";
 import "../style/index.sass";
+import { ModalProps } from "./Layout/Modal";
 
 const ShowCase = () => {
   const [lazyLoaderEOD, setLazyLoaderEOD] = useState(false);
+  const [modalData, setModalData] = useState<ModalProps>({
+    open: false,
+    MouseEvent: undefined,
+    closeHandler: () => {},
+    keepModalCentered: false,
+    TransitionStyle: "none",
+  });
   return (
     <div className="showcase__container">
       <header>
@@ -66,6 +75,47 @@ const ShowCase = () => {
               <div>Move your mouse over this box</div>
             </TorchBox>
             <code>{`<TorchBox />`}</code>
+          </div>
+          <div className="item">
+            <button
+              className="modal-open-cta"
+              style={{
+                background: "rgba(125,125,125,0.3)",
+                boxShadow: "1px 2px 7px grey",
+                padding: "10px 30px",
+                border: "none",
+                outline: "none",
+                borderRadius: "7px",
+                cursor: "pointer",
+                transition: "box-shadow 200ms ease",
+                marginBottom: "50%",
+              }}
+              onClick={(e) => {
+                setModalData((state) => ({
+                  ...state,
+                  open: true,
+                  MouseEvent: e,
+                }));
+              }}
+            >
+              Open PopUp
+            </button>
+            <code>{`<Modal />`}</code>
+            <Modal
+              open={modalData.open}
+              closeHandler={() =>
+                setModalData((state) => ({ ...state, open: false }))
+              }
+              keepModalCentered={true}
+              MouseEvent={modalData.MouseEvent}
+              TransitionStyle="fade"
+              modalStyle={{ borderRadius: "10px" }}
+            >
+              <p style={{ padding: "20px", color: "black" }}>
+                I was not able to get some popup data, but the good thing
+                is....It's Working!
+              </p>
+            </Modal>
           </div>
         </div>
       </div>
