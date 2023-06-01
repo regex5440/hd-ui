@@ -11,7 +11,7 @@ export interface ModalProps {
   children?: React.ReactElement;
   closeOnOverlayClick?: boolean;
   MouseEvent?: React.MouseEvent | undefined;
-  modalStyle?: ElementCSSInlineStyle;
+  modalStyle?: React.CSSProperties;
 }
 const Modal = ({
   open = false,
