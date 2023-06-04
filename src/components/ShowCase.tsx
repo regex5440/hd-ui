@@ -106,7 +106,7 @@ const ShowCase = () => {
               closeHandler={() =>
                 setModalData((state) => ({ ...state, open: false }))
               }
-              keepModalCentered={true}
+              keepModalCentered={false}
               MouseEvent={modalData.MouseEvent}
               TransitionStyle="fade"
               modalStyle={{ borderRadius: "10px" }}

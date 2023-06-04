@@ -4,7 +4,7 @@ import "./modal.sass";
 export interface ModalProps {
   open: boolean;
   closeHandler: () => void;
-  showOverlay?: boolean;
+  showBackdrop?: boolean;
   keepModalCentered: boolean;
   TransitionStyle: "fade" | "zoom" | "none";
   disableScroll?: boolean;
@@ -16,7 +16,7 @@ export interface ModalProps {
 const Modal = ({
   open = false,
   closeHandler,
-  showOverlay = true,
+  showBackdrop = true,
   keepModalCentered = true,
   TransitionStyle = "fade",
   children,
@@ -72,7 +72,7 @@ const Modal = ({
         <div className="hd-ui-modal modal-container">
           <div
             className={`hd-ui-modal-overlay`}
-            data-visible={showOverlay}
+            data-visible={showBackdrop}
             onClick={closeOnOverlayClick ? closeHandler : undefined}
             ref={overlayRef}
             style={{ animation: "fade 400ms ease" }}
