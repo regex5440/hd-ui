@@ -1,27 +1,29 @@
 // Linear Loader
-$filler-color: rgb(52, 52, 52)
 .loader-container.hdui-linear-loader
+    width: 300px
+    height: 7px
     & [class^=linear]
         border-radius: 20px
     .linear-loader-surface
         position: relative
-        width: 300px
-        height: 7px
-        background-color: white
+        width: 100%
+        height: 100%
+        background-color: var(--trackColor, white)
         overflow: hidden
     .linear-loader-animated-surface
         position: absolute
         height: 100%
         width: 100%
-        left: -100%
-        background-color: $filler-color
-        animation: bouncy-size 4s infinite ease-in-out, move 2s infinite linear
-        @keyframes bouncy-size
-            50%
-                scale: 0.3 1
-        @keyframes move
-            100%
-                translate: 200%
+        background-color: var(--riderColor,#343434)
+        &[data-type='loader']
+            left: -100%
+            animation: bouncy-size 4s infinite ease-in-out, move 2s infinite linear
+            @keyframes bouncy-size
+                50%
+                    scale: 0.3 1
+            @keyframes move
+                100%
+                    translate: 200%
 
 // Circular loader
 .hdui-circular-loader
@@ -37,10 +39,10 @@ $filler-color: rgb(52, 52, 52)
             100%
                 rotate: 360deg
         circle
-            stroke-width: 4
+            stroke-width: 10%
             fill: transparent
         .cover
-            stroke-width: 3
+            stroke-width: 10%
             animation: resize 1.5s ease-in-out infinite
         @keyframes resize
             0%

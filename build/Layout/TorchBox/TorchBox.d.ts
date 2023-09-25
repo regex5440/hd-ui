@@ -3,9 +3,10 @@ interface TorchBoxProps {
     children?: ReactElement;
     torchStyle?: {
         size: number;
-    } & CSSProperties;
+        color?: string;
+    };
     containerStyle: CSSProperties;
 }
-declare const TorchBox: ({ containerStyle, children, torchStyle }: TorchBoxProps) => JSX.Element;
+declare const TorchBox: ({ containerStyle, children, torchStyle }: TorchBoxProps) => import("react/jsx-runtime").JSX.Element;
 export default TorchBox;
 //# sourceMappingURL=TorchBox.d.ts.map

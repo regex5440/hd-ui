@@ -12,7 +12,8 @@ interface TorchBoxProps {
   children?: ReactElement;
   torchStyle?: {
     size: number;
-  } & CSSProperties;
+    color?: string;
+  };
   containerStyle: CSSProperties;
 }
 
@@ -21,24 +22,24 @@ const TorchBox = ({ containerStyle, children, torchStyle }: TorchBoxProps) => {
   useEffect(() => {
     if (torchStyle) {
       try {
-        let torchStyleObject: string = "";
-        Object.entries(torchStyle).forEach(([key, value]: string[]) => {
-          if (key !== "size") {
-            torchStyleObject += `${key}:${value};`;
-          } else {
-            torchStyleObject += `width: ${(
-              Number(torchStyle.size) * 100
-            ).toFixed(2)}%;`;
-          }
-        });
-        if (torch.current)
-          torch.current.setAttribute("style", torchStyleObject);
+        if (torchStyle.size) {
+          torch.current?.style?.setProperty(
+            "width",
+            `${(Number(torchStyle.size) * 100).toFixed(2)}%`,
+          );
+        }
+        if (torchStyle.color) {
+          torch.current?.style.setProperty(
+            "background-color",
+            torchStyle.color,
+          );
+        }
       } catch (e) {
         console.error(e);
         console.log("Incorrect style format for `torchStyle` prop");
       }
     }
-  }, []);
+  }, [torch.current, torchStyle]);
   const showTorch = () => {
     if (torch.current) {
       torch.current.style.visibility = "visible";
@@ -60,7 +61,7 @@ const TorchBox = ({ containerStyle, children, torchStyle }: TorchBoxProps) => {
           left: `${e.clientX - left}px`,
           top: `${e.clientY - top}px`,
         },
-        { duration: 500, fill: "forwards" }
+        { duration: 500, fill: "forwards" },
       );
   };
 
@@ -70,15 +71,11 @@ const TorchBox = ({ containerStyle, children, torchStyle }: TorchBoxProps) => {
       onMouseOver={showTorch}
       onMouseOut={hideTorch}
       onMouseMove={moveTorch}
+      style={containerStyle}
     >
       <div ref={torch} className="torch-shadow"></div>
       <div className="torch-shadow-overlay"></div>
-      <div
-        className="torch-box-container__child-container"
-        style={containerStyle}
-      >
-        {children}
-      </div>
+      <div className="torch-box-container__child-container">{children}</div>
     </div>
   );
 };

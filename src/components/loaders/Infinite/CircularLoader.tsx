@@ -3,12 +3,20 @@ import "./infinite.sass";
 import { CSSColor } from "src/utils/types";
 
 type CircularLoaderProps = {
-  loaderColor?: CSSColor;
-  backgroundColor?: CSSColor;
-  width: number;
+  size: number;
+  riderColor?: CSSColor;
+  trackColor?: CSSColor;
+  trackWidth?: number;
+  riderWidth?: number;
 };
 
-const CircularLoader = (props: CircularLoaderProps) => {
+const CircularLoader = ({
+  size = 40,
+  trackColor,
+  riderColor,
+  trackWidth = 10,
+  riderWidth = 10,
+}: CircularLoaderProps) => {
   const loaderCircle = useRef<SVGCircleElement>(null);
   useEffect(() => {
     if (loaderCircle.current) {
@@ -18,17 +26,25 @@ const CircularLoader = (props: CircularLoaderProps) => {
         dasharray.toFixed(2) + "px",
       );
     }
-  }, []);
+  }, [size]);
+  const largerWidth = trackWidth > riderWidth ? trackWidth : riderWidth;
   return (
     <div className="hdui-circular-loader loader-container">
-      <svg className="circular-loader-surface" width={props.width}>
-        <circle cx="50%" cy="50%" r="50%" stroke={props.backgroundColor} />
+      <svg className="circular-loader-surface" width={size} height={size}>
         <circle
           cx="50%"
           cy="50%"
-          r="50%"
+          r={`${50 - largerWidth}%`}
+          stroke={trackColor}
+          style={{ strokeWidth: `${trackWidth}%` }}
+        />
+        <circle
+          cx="50%"
+          cy="50%"
+          r={`${50 - largerWidth}%`}
           className="cover"
-          stroke={props.loaderColor || "rgb(52, 52, 52)"}
+          stroke={riderColor || "rgb(52, 52, 52)"}
+          style={{ strokeWidth: `${riderWidth}%` }}
           ref={loaderCircle}
         />
         <div className="circular-loader-animated-surface">H</div>

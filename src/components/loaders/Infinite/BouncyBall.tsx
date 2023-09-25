@@ -4,10 +4,10 @@ import { CSSColor } from "src/utils/types";
 
 type BouncyBallProps = {
   ballColor?: CSSColor;
-  containerColor?: CSSColor;
+  style?: React.CSSProperties;
 };
 
-const BouncyBalls = ({ ballColor, containerColor }: BouncyBallProps) => {
+const BouncyBalls = ({ ballColor, style = {} }: BouncyBallProps) => {
   const bouncyLoaderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,15 +17,14 @@ const BouncyBalls = ({ ballColor, containerColor }: BouncyBallProps) => {
           "--bouncyBallColor",
           ballColor,
         );
-      if (containerColor)
-        bouncyLoaderRef.current.style.setProperty(
-          "--bouncyBallContainerColor",
-          containerColor,
-        );
     }
-  }, []);
+  }, [ballColor, bouncyLoaderRef.current]);
   return (
-    <div className="hd-ui-bouncy-loader loader-container" ref={bouncyLoaderRef}>
+    <div
+      className="hd-ui-bouncy-loader loader-container"
+      ref={bouncyLoaderRef}
+      style={style}
+    >
       <div className="ball"></div>
       <div className="ball"></div>
       <div className="ball"></div>
