@@ -1,8 +1,9 @@
+import React from "react";
 import { CSSColor } from "src/utils/types";
 type BouncyBallProps = {
     ballColor?: CSSColor;
-    containerColor?: CSSColor;
+    style?: React.CSSProperties;
 };
-declare const BouncyBalls: ({ ballColor, containerColor }: BouncyBallProps) => JSX.Element;
+declare const BouncyBalls: ({ ballColor, style }: BouncyBallProps) => import("react/jsx-runtime").JSX.Element;
 export default BouncyBalls;
 //# sourceMappingURL=BouncyBall.d.ts.map

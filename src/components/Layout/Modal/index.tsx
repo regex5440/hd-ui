@@ -8,9 +8,9 @@ export interface ModalProps {
   keepModalCentered: boolean;
   TransitionStyle: "fade" | "zoom" | "none";
   disableScroll?: boolean;
-  children?: React.ReactElement;
-  closeOnOverlayClick?: boolean;
-  MouseEvent?: React.MouseEvent | undefined;
+  children?: any;
+  closeOnBackdropClick?: boolean;
+  triggerElement?: React.RefObject<HTMLElement>;
   modalStyle?: React.CSSProperties;
 }
 const Modal = ({
@@ -20,37 +20,24 @@ const Modal = ({
   keepModalCentered = true,
   TransitionStyle = "fade",
   children,
-  closeOnOverlayClick = true,
-  MouseEvent,
+  closeOnBackdropClick = true,
+  triggerElement,
   modalStyle,
 }: ModalProps) => {
   const [mount, setMount] = useState(false);
   const modalContainerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-
+  console.log(triggerElement?.current);
   useEffect(() => {
+    if (open) {
+      setMount(true);
+    }
     if (
-      !keepModalCentered &&
-      MouseEvent !== undefined &&
+      !open &&
+      TransitionStyle !== "none" &&
+      overlayRef.current &&
       modalContainerRef.current
     ) {
-      // Get Client Position from MouseEvent
-      // Assign that to the modal container for it's alignment
-      const modalWidth = modalContainerRef.current.offsetWidth,
-        modalHeight = modalContainerRef.current.offsetHeight;
-      let cursorLeft = MouseEvent.clientX,
-        cursorTop = MouseEvent.clientY;
-
-      if (cursorLeft + modalWidth > window.innerWidth) {
-        cursorLeft = window.innerWidth - modalWidth - 10;
-      }
-      if (cursorTop + modalHeight > window.innerHeight) {
-        cursorTop = window.innerHeight - modalHeight - 10;
-      }
-      modalContainerRef.current.style.setProperty("left", `${cursorLeft}px`);
-      modalContainerRef.current.style.setProperty("top", `${cursorTop}px`);
-    }
-    if (!open && overlayRef.current && modalContainerRef.current) {
       overlayRef.current.style.removeProperty("animation");
       modalContainerRef.current.style.removeProperty("animation");
       setTimeout(() => {
@@ -61,10 +48,42 @@ const Modal = ({
         }
       }, 0);
     }
-    if (open) {
-      setMount(true);
+    if (TransitionStyle === "none") {
+      unMountModal();
     }
-  }, [open]);
+  }, [open, TransitionStyle, overlayRef, modalContainerRef]);
+
+  useEffect(() => {
+    if (
+      !keepModalCentered &&
+      triggerElement?.current &&
+      modalContainerRef.current
+    ) {
+      // Get Client Position from MouseEvent
+      // Assign that to the modal container for it's alignment
+      const modalWidth = modalContainerRef.current.offsetWidth,
+        modalHeight = modalContainerRef.current.offsetHeight;
+      let { left: cursorLeft, top: cursorTop } =
+        triggerElement.current.getBoundingClientRect();
+
+      if (cursorLeft + modalWidth > window.innerWidth) {
+        cursorLeft = window.innerWidth - modalWidth - 10;
+      }
+      if (cursorTop + modalHeight > window.innerHeight) {
+        cursorTop = window.innerHeight - modalHeight - 10;
+      }
+      modalContainerRef.current.style.setProperty("left", `${cursorLeft}px`);
+      modalContainerRef.current.style.setProperty("top", `${cursorTop}px`);
+    }
+  });
+  const unMountModal = () => {
+    console.log("Animation end");
+    if (!open) {
+      setMount(false);
+      closeHandler && closeHandler();
+      console.log("mount: false");
+    }
+  };
 
   return (
     <>
@@ -73,9 +92,11 @@ const Modal = ({
           <div
             className={`hd-ui-modal-overlay`}
             data-visible={showBackdrop}
-            onClick={closeOnOverlayClick ? closeHandler : undefined}
+            onClick={closeOnBackdropClick ? closeHandler : undefined}
             ref={overlayRef}
-            style={{ animation: "fade 400ms ease" }}
+            style={
+              TransitionStyle !== "none" ? { animation: "fade 400ms ease" } : {}
+            }
           ></div>
           <div
             className={`modal-child-container`}
@@ -88,7 +109,7 @@ const Modal = ({
               ...modalStyle,
             }}
             ref={modalContainerRef}
-            onAnimationEnd={!open ? () => setMount(false) : undefined}
+            onAnimationEnd={unMountModal}
           >
             {children}
           </div>

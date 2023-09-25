@@ -1,12 +1,17 @@
 import React, { ChangeEvent } from "react";
 import "./hamburger.sass";
 
-interface HamBurgerProps {
+type HamBurgerProps = {
   onOpen?: (event: ChangeEvent<HTMLInputElement>) => void;
   onClose?: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+  strokeColor?: string;
+};
 
-const HamBurger = ({ onOpen, onClose }: HamBurgerProps) => {
+const HamBurger = ({
+  onOpen,
+  onClose,
+  strokeColor = "rgb(125,125,125)",
+}: HamBurgerProps) => {
   const clickHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       if (onOpen) onOpen(e);
@@ -22,9 +27,18 @@ const HamBurger = ({ onOpen, onClose }: HamBurgerProps) => {
         title="HamBurger"
       />
       <label className="container__inner" htmlFor="ham-menu1">
-        <div className="stroke1 stroke"></div>
-        <div className="stroke2 stroke"></div>
-        <div className="stroke3 stroke"></div>
+        <div
+          className="stroke1 stroke"
+          style={{ backgroundColor: strokeColor }}
+        ></div>
+        <div
+          className="stroke2 stroke"
+          style={{ backgroundColor: strokeColor }}
+        ></div>
+        <div
+          className="stroke3 stroke"
+          style={{ backgroundColor: strokeColor }}
+        ></div>
       </label>
     </div>
   );
