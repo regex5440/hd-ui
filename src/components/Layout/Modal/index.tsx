@@ -1,4 +1,10 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, {
+  SyntheticEvent,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import "./modal.sass";
 
 export interface ModalProps {
@@ -9,7 +15,8 @@ export interface ModalProps {
   TransitionStyle: "fade" | "zoom" | "none";
   disableScroll?: boolean;
   children?: any;
-  closeOnBackdropClick?: boolean;
+  closeOnBlur?: boolean;
+  closeOnBackDropClick?: boolean;
   triggerElement?: React.RefObject<HTMLElement>;
   modalStyle?: React.CSSProperties;
 }
@@ -20,7 +27,8 @@ const Modal = ({
   keepModalCentered = true,
   TransitionStyle = "fade",
   children,
-  closeOnBackdropClick = true,
+  closeOnBlur = true,
+  closeOnBackDropClick = true,
   triggerElement,
   modalStyle,
   ...restProps
@@ -32,26 +40,30 @@ const Modal = ({
     if (open) {
       setMount(true);
     }
-    if (
-      !open &&
-      TransitionStyle !== "none" &&
-      overlayRef.current &&
-      modalContainerRef.current
-    ) {
-      overlayRef.current.style.removeProperty("animation");
-      modalContainerRef.current.style.removeProperty("animation");
+    if (!open && TransitionStyle !== "none") {
+      overlayRef.current?.style.removeProperty("animation");
+      modalContainerRef.current?.style.removeProperty("animation");
       setTimeout(() => {
-        if (overlayRef.current && modalContainerRef.current) {
-          overlayRef.current.style.animation =
-            "fade 300ms ease reverse forwards";
-          modalContainerRef.current.style.animation = `${TransitionStyle} 200ms ease reverse forwards`;
-        }
+        overlayRef.current?.style.setProperty(
+          "animation",
+          "fade 300ms ease reverse forwards",
+        );
+        modalContainerRef.current?.style.setProperty(
+          "animation",
+          `${TransitionStyle} 200ms ease reverse forwards`,
+        );
       }, 0);
     }
     if (TransitionStyle === "none") {
       unMountModal();
     }
   }, [open, TransitionStyle, overlayRef, modalContainerRef]);
+
+  useEffect(() => {
+    if (open) {
+      modalContainerRef.current?.focus();
+    }
+  }, [open, mount, modalContainerRef.current]);
 
   useEffect(() => {
     if (
@@ -79,7 +91,7 @@ const Modal = ({
   const unMountModal = () => {
     if (!open) {
       setMount(false);
-      closeHandler && closeHandler();
+      closeHandler?.();
     }
   };
 
@@ -92,6 +104,7 @@ const Modal = ({
               className={`hd-ui-modal-overlay`}
               data-visible={showBackdrop}
               ref={overlayRef}
+              onClick={closeOnBackDropClick ? closeHandler : undefined}
               style={
                 TransitionStyle !== "none"
                   ? { animation: "fade 400ms ease" }
@@ -111,13 +124,8 @@ const Modal = ({
             }}
             ref={modalContainerRef}
             onAnimationEnd={unMountModal}
-            tabIndex={-1}
-            onAnimationStart={(e) =>
-              open && e.target instanceof HTMLDivElement
-                ? e.target.focus()
-                : undefined
-            }
-            onBlur={closeOnBackdropClick ? closeHandler : undefined}
+            tabIndex={0}
+            onBlur={closeOnBlur ? closeHandler : undefined}
             {...restProps}
           >
             {children}

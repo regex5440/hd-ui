@@ -11,10 +11,11 @@ type DropDownProps = {
     optionLayerStyle?: CSSProperties;
     style?: CSSProperties;
     selectedOptionStyle?: CSSProperties;
+    defaultValue?: string;
     [restPropKey: string]: any;
 };
 declare const DropDown: {
-    ({ children, onChange, style, optionLayerStyle, selectedOptionStyle, ...restProps }: DropDownProps): import("react/jsx-runtime").JSX.Element;
+    ({ children, onChange, style, optionLayerStyle, selectedOptionStyle, defaultValue, ...restProps }: DropDownProps): import("react/jsx-runtime").JSX.Element;
     Option({ children, value, selected, ...restProps }: DropDownOptionProp): import("react/jsx-runtime").JSX.Element;
 };
 export default DropDown;

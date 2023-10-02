@@ -12,11 +12,12 @@ const meta: Meta = {
 
 export default meta;
 
-export const PopOver: StoryObj<typeof meta> = {
+export const PopOver: StoryObj<typeof Modal> = {
   args: {
     keepModalCentered: false,
     TransitionStyle: "fade",
-    closeOnBackDropClick: true,
+    closeOnBlur: true,
+    showBackdrop: false,
   },
   render: (args) => {
     const [state, setState] = useState(false);
@@ -27,10 +28,13 @@ export const PopOver: StoryObj<typeof meta> = {
           Modal
         </button>
         <Modal
-          {...(args as ModalProps)}
+          {...args}
           triggerElement={button}
           open={state}
-          closeHandler={() => setState(false)}
+          closeHandler={() => {
+            console.log("ClosedPopover");
+            setState(false);
+          }}
         >
           This is a popover modal, it will be placed near to the element that
           changes it's state based on the prop: triggerElement
