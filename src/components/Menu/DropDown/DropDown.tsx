@@ -54,13 +54,13 @@ const DropDown = ({
   if (showOption) {
     ddLayer.current?.focus();
   }
-  useEffect(() => {
-    if (ddLayer.current) {
-      ddLayer.current.onblur = () => {
-        setShowOption(false);
-      };
-    }
-  }, [ddLayer, setShowOption]);
+  // useEffect(() => {
+  //   if (ddLayer.current) {
+  //     ddLayer.current.onblur = () => {
+  //       setShowOption(false);
+  //     };
+  //   }
+  // }, [ddLayer, setShowOption]);
 
   const clickHandler = (e: SyntheticEvent<HTMLDivElement>) => {
     if (e.target instanceof HTMLDivElement && e.target.dataset?.value) {
@@ -94,6 +94,7 @@ const DropDown = ({
           style={{ height: `${childrenLength * 100}%`, ...optionLayerStyle }}
           tabIndex={0}
           ref={ddLayer}
+          onBlur={() => setShowOption(false)}
         >
           {children}
         </div>
