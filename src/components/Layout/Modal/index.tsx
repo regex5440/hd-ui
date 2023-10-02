@@ -23,6 +23,7 @@ const Modal = ({
   closeOnBackdropClick = true,
   triggerElement,
   modalStyle,
+  ...restProps
 }: ModalProps) => {
   const [mount, setMount] = useState(false);
   const modalContainerRef = useRef<HTMLDivElement>(null);
@@ -110,6 +111,7 @@ const Modal = ({
             }}
             ref={modalContainerRef}
             onAnimationEnd={unMountModal}
+            {...restProps}
           >
             {children}
           </div>
