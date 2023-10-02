@@ -16,6 +16,7 @@ export const PopOver: StoryObj<typeof meta> = {
   args: {
     keepModalCentered: false,
     TransitionStyle: "fade",
+    closeOnBackDropClick: true,
   },
   render: (args) => {
     const [state, setState] = useState(false);
@@ -43,5 +44,8 @@ export const Dialog: StoryObj<typeof meta> = {
   args: {
     open: true,
     keepModalCentered: true,
+    closeHandler: () => {
+      console.log("Closed");
+    },
   },
 };

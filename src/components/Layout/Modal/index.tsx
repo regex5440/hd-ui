@@ -28,7 +28,6 @@ const Modal = ({
   const [mount, setMount] = useState(false);
   const modalContainerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  console.log(triggerElement?.current);
   useEffect(() => {
     if (open) {
       setMount(true);
@@ -78,11 +77,9 @@ const Modal = ({
     }
   });
   const unMountModal = () => {
-    console.log("Animation end");
     if (!open) {
       setMount(false);
       closeHandler && closeHandler();
-      console.log("mount: false");
     }
   };
 
@@ -90,15 +87,18 @@ const Modal = ({
     <>
       {mount && (
         <div className="hd-ui-modal modal-container">
-          <div
-            className={`hd-ui-modal-overlay`}
-            data-visible={showBackdrop}
-            onClick={closeOnBackdropClick ? closeHandler : undefined}
-            ref={overlayRef}
-            style={
-              TransitionStyle !== "none" ? { animation: "fade 400ms ease" } : {}
-            }
-          ></div>
+          {showBackdrop && (
+            <div
+              className={`hd-ui-modal-overlay`}
+              data-visible={showBackdrop}
+              ref={overlayRef}
+              style={
+                TransitionStyle !== "none"
+                  ? { animation: "fade 400ms ease" }
+                  : {}
+              }
+            ></div>
+          )}
           <div
             className={`modal-child-container`}
             data-centered={keepModalCentered}
@@ -111,6 +111,13 @@ const Modal = ({
             }}
             ref={modalContainerRef}
             onAnimationEnd={unMountModal}
+            tabIndex={-1}
+            onAnimationStart={(e) =>
+              open && e.target instanceof HTMLDivElement
+                ? e.target.focus()
+                : undefined
+            }
+            onBlur={closeOnBackdropClick ? closeHandler : undefined}
             {...restProps}
           >
             {children}
