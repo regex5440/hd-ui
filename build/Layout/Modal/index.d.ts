@@ -11,6 +11,6 @@ export interface ModalProps {
     triggerElement?: React.RefObject<HTMLElement>;
     modalStyle?: React.CSSProperties;
 }
-declare const Modal: ({ open, closeHandler, showBackdrop, keepModalCentered, TransitionStyle, children, closeOnBackdropClick, triggerElement, modalStyle, }: ModalProps) => import("react/jsx-runtime").JSX.Element;
+declare const Modal: ({ open, closeHandler, showBackdrop, keepModalCentered, TransitionStyle, children, closeOnBackdropClick, triggerElement, modalStyle, ...restProps }: ModalProps) => import("react/jsx-runtime").JSX.Element;
 export default Modal;
 //# sourceMappingURL=index.d.ts.map

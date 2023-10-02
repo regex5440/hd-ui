@@ -1,5 +1,5 @@
 import { LinearLoader, CircularLoader, BouncyBalls } from "./loaders";
-import { HamBurger } from "./Menu";
+import { HamBurger, DropDown } from "./Menu";
 import { TorchBox, Modal } from "./Layout";
 import { LazyLoader } from "./Utilities";
 
@@ -10,6 +10,7 @@ export {
   BouncyBalls,
   // Menu
   HamBurger,
+  DropDown,
   // Layout
   TorchBox,
   Modal,
