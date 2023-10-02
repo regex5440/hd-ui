@@ -8,21 +8,11 @@ export default {
   parameters: {
     layout: "centered",
   },
-  // includeStories: ["DropDown.Option"],
 } satisfies Meta<typeof DropDown>;
 
 type StoryObject = StoryObj<typeof DropDown>;
 
 export const DefaultWithOption: StoryObject = {
-  // args: {
-  //   onChange: (value) => {
-  //     console.log("LogFromDropDown", value);
-  //   },
-  //   children: [
-  //     <DefaultOption value="Option 1">Option 1</DefaultOption>,
-  //     <DefaultOption value="Option 2">Option 2</DefaultOption>,
-  //   ],
-  // },
   render: (args) => {
     return (
       <DropDown
@@ -31,9 +21,7 @@ export const DefaultWithOption: StoryObject = {
         }}
         {...args}
       >
-        <DropDown.Option value={"Option 1"} selected>
-          Option 1
-        </DropDown.Option>
+        <DropDown.Option value={"Option 1"}>Option 1</DropDown.Option>
         <DropDown.Option value={"Option 2"}>Option 2</DropDown.Option>
       </DropDown>
     );

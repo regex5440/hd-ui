@@ -24,6 +24,7 @@ type DropDownProps = {
   optionLayerStyle?: CSSProperties;
   style?: CSSProperties;
   selectedOptionStyle?: CSSProperties;
+  defaultValue?: string;
   [restPropKey: string]: any;
 };
 
@@ -33,18 +34,25 @@ const DropDown = ({
   style,
   optionLayerStyle,
   selectedOptionStyle,
+  defaultValue,
   ...restProps
 }: DropDownProps) => {
   const [showOption, setShowOption] = useState(false);
-  const [storedOption, setStoredOption] = useState<any>();
+  const [storedOption, setStoredOption] = useState<{
+    layout: any;
+    value: string;
+  }>();
   const ddLayer = useRef<HTMLDivElement>(null);
   const childrenLength = Array.isArray(children) ? children.length : 1;
 
   useEffect(() => {
     if (Array.isArray(children)) {
       for (const element of children) {
-        if (element.props.selected) {
-          setStoredOption(element.props.value);
+        if (defaultValue === element.props.value || element.props.selected) {
+          setStoredOption({
+            layout: element.props.children,
+            value: element.props.value,
+          });
           break;
         }
       }
@@ -54,19 +62,16 @@ const DropDown = ({
   if (showOption) {
     ddLayer.current?.focus();
   }
-  // useEffect(() => {
-  //   if (ddLayer.current) {
-  //     ddLayer.current.onblur = () => {
-  //       setShowOption(false);
-  //     };
-  //   }
-  // }, [ddLayer, setShowOption]);
 
   const clickHandler = (e: SyntheticEvent<HTMLDivElement>) => {
-    if (e.target instanceof HTMLDivElement && e.target.dataset?.value) {
-      const optionData = e.target.dataset.value;
-      if (storedOption !== optionData) {
-        setStoredOption(optionData);
+    if (e.target instanceof HTMLDivElement && e.target.ariaLabel === "option") {
+      const optionData =
+        e.target.dataset.value || e.target.textContent?.trim() || "";
+      if (storedOption?.value !== optionData) {
+        setStoredOption({
+          layout: e.target.innerHTML || optionData,
+          value: optionData,
+        });
         onChange?.(optionData);
       }
       setShowOption(false);
@@ -76,24 +81,21 @@ const DropDown = ({
   };
 
   return (
-    <div
-      className="hd-ui-dropdown dropdown-container"
-      style={style}
-      {...restProps}
-    >
+    <div className="hd-ui-dropdown dropdown-container" {...restProps}>
       <div
         className="dropdown-container-set"
         onClick={clickHandler}
         aria-hidden={!showOption}
+        style={style}
       >
         <div className="dropdown-button" style={selectedOptionStyle}>
-          {storedOption || "--Select--"}
+          {storedOption?.layout || "--Select--"}
         </div>
         <div
           className="dropdown-layer"
           style={{ height: `${childrenLength * 100}%`, ...optionLayerStyle }}
-          tabIndex={0}
           ref={ddLayer}
+          tabIndex={0}
           onBlur={() => setShowOption(false)}
         >
           {children}
@@ -113,6 +115,7 @@ DropDown.Option = ({
     <div
       className="hd-ui-dropdown-option"
       data-value={value}
+      aria-label="option"
       {...(selected ? { selected } : {})}
       {...restProps}
     >
