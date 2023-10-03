@@ -125,7 +125,18 @@ const Modal = ({
             ref={modalContainerRef}
             onAnimationEnd={unMountModal}
             tabIndex={0}
-            onBlur={closeOnBlur ? closeHandler : undefined}
+            onBlur={
+              closeOnBlur
+                ? (e) => {
+                    const currentTarget = e.currentTarget;
+                    setTimeout(() => {
+                      if (!currentTarget.contains(document.activeElement)) {
+                        closeHandler();
+                      }
+                    }, 0);
+                  }
+                : undefined
+            }
             {...restProps}
           >
             {children}
