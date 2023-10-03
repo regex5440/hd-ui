@@ -25,6 +25,7 @@ type DropDownProps = {
   style?: CSSProperties;
   selectedOptionStyle?: CSSProperties;
   defaultValue?: string;
+  actionType?: "click" | "hover";
   [restPropKey: string]: any;
 };
 
@@ -35,6 +36,7 @@ const DropDown = ({
   optionLayerStyle,
   selectedOptionStyle,
   defaultValue,
+  actionType,
   ...restProps
 }: DropDownProps) => {
   const [showOption, setShowOption] = useState(false);
@@ -47,8 +49,10 @@ const DropDown = ({
 
   useEffect(() => {
     if (Array.isArray(children)) {
-      for (const element of children) {
+      let selectedOptionIndex = 0;
+      for (const [index, element] of children.entries()) {
         if (defaultValue === element.props.value || element.props.selected) {
+          selectedOptionIndex = index;
           setStoredOption({
             layout: element.props.children,
             value: element.props.value,
@@ -56,6 +60,12 @@ const DropDown = ({
           break;
         }
       }
+      ddLayer.current?.children?.[selectedOptionIndex]?.setAttribute(
+        "selected",
+        "",
+      );
+    } else {
+      ddLayer.current?.children?.[0]?.setAttribute("selected", "");
     }
   }, [children]);
 
@@ -72,6 +82,10 @@ const DropDown = ({
           layout: e.target.innerHTML || optionData,
           value: optionData,
         });
+        e.target.parentElement
+          ?.querySelector("[selected]")
+          ?.removeAttribute("selected");
+        e.target.setAttribute("selected", "");
         onChange?.(optionData);
       }
       setShowOption(false);
@@ -83,7 +97,9 @@ const DropDown = ({
   return (
     <div className="hd-ui-dropdown dropdown-container" {...restProps}>
       <div
-        className="dropdown-container-set"
+        className={`dropdown-container-set${
+          actionType === "hover" ? " mouseover" : ""
+        }`}
         onClick={clickHandler}
         aria-hidden={!showOption}
         style={style}

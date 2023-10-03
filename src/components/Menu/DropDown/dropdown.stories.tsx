@@ -22,7 +22,9 @@ export const DefaultWithOption: StoryObject = {
         {...args}
       >
         <DropDown.Option value={"Option 1"}>Option 1</DropDown.Option>
-        <DropDown.Option value={"Option 2"}>Option 2</DropDown.Option>
+        <DropDown.Option value={"Option 2"} selected>
+          Option 2
+        </DropDown.Option>
       </DropDown>
     );
   },
