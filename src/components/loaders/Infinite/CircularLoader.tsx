@@ -20,7 +20,7 @@ const CircularLoader = ({
   const loaderCircle = useRef<SVGCircleElement>(null);
   useEffect(() => {
     if (loaderCircle.current) {
-      const dasharray: number = loaderCircle.current.getTotalLength();
+      const dasharray: number = loaderCircle.current?.getTotalLength?.() || 0;
       loaderCircle.current.style.setProperty(
         "--dasharray",
         dasharray.toFixed(2) + "px",
