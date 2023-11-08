@@ -17,11 +17,15 @@ const CircularLoader = ({
   trackWidth = 10,
   riderWidth = 10,
 }: CircularLoaderProps) => {
-  const loaderCircle = useRef<SVGCircleElement>(null);
+  const loader = useRef<SVGSVGElement>(null);
   useEffect(() => {
-    if (loaderCircle.current) {
-      const dasharray: number = loaderCircle.current?.getTotalLength?.() || 0;
-      loaderCircle.current.style.setProperty(
+    if (loader.current) {
+      const dasharray: number =
+        loader.current
+          ?.getElementsByClassName("cover")?.[0]
+          // @ts-ignore
+          ?.getTotalLength?.() || 0;
+      loader.current.style.setProperty(
         "--dasharray",
         dasharray.toFixed(2) + "px",
       );
@@ -30,22 +34,28 @@ const CircularLoader = ({
   const largerWidth = trackWidth > riderWidth ? trackWidth : riderWidth;
   return (
     <div className="hdui-circular-loader loader-container">
-      <svg className="circular-loader-surface" width={size} height={size}>
+      <svg
+        className="circular-loader-surface"
+        width={size}
+        height={size}
+        ref={loader}
+      >
         <circle
           cx="50%"
           cy="50%"
           r={`${50 - largerWidth}%`}
           stroke={trackColor}
           style={{ strokeWidth: `${trackWidth}%` }}
+          strokeLinecap="round"
         />
         <circle
+          strokeLinecap="round"
           cx="50%"
           cy="50%"
           r={`${50 - largerWidth}%`}
           className="cover"
           stroke={riderColor || "rgb(52, 52, 52)"}
           style={{ strokeWidth: `${riderWidth}%` }}
-          ref={loaderCircle}
         />
         <div className="circular-loader-animated-surface">H</div>
       </svg>

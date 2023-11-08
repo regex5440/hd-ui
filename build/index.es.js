@@ -14,16 +14,16 @@ function dr() {
   if ($e)
     return H;
   $e = 1;
-  var o = Le, l = Symbol.for("react.element"), u = Symbol.for("react.fragment"), a = Object.prototype.hasOwnProperty, p = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, w = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function O(h, i, g) {
-    var d, T = {}, x = null, P = null;
-    g !== void 0 && (x = "" + g), i.key !== void 0 && (x = "" + i.key), i.ref !== void 0 && (P = i.ref);
-    for (d in i)
-      a.call(i, d) && !w.hasOwnProperty(d) && (T[d] = i[d]);
-    if (h && h.defaultProps)
-      for (d in i = h.defaultProps, i)
-        T[d] === void 0 && (T[d] = i[d]);
-    return { $$typeof: l, type: h, key: x, ref: P, props: T, _owner: p.current };
+  var o = Le, l = Symbol.for("react.element"), u = Symbol.for("react.fragment"), a = Object.prototype.hasOwnProperty, p = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, T = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function O(y, i, b) {
+    var f, R = {}, x = null, P = null;
+    b !== void 0 && (x = "" + b), i.key !== void 0 && (x = "" + i.key), i.ref !== void 0 && (P = i.ref);
+    for (f in i)
+      a.call(i, f) && !T.hasOwnProperty(f) && (R[f] = i[f]);
+    if (y && y.defaultProps)
+      for (f in i = y.defaultProps, i)
+        R[f] === void 0 && (R[f] = i[f]);
+    return { $$typeof: l, type: y, key: x, ref: P, props: R, _owner: p.current };
   }
   return H.Fragment = u, H.jsx = O, H.jsxs = O, H;
 }
@@ -40,14 +40,14 @@ var q = {};
 var Ie;
 function vr() {
   return Ie || (Ie = 1, process.env.NODE_ENV !== "production" && function() {
-    var o = Le, l = Symbol.for("react.element"), u = Symbol.for("react.portal"), a = Symbol.for("react.fragment"), p = Symbol.for("react.strict_mode"), w = Symbol.for("react.profiler"), O = Symbol.for("react.provider"), h = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), g = Symbol.for("react.suspense"), d = Symbol.for("react.suspense_list"), T = Symbol.for("react.memo"), x = Symbol.for("react.lazy"), P = Symbol.for("react.offscreen"), $ = Symbol.iterator, I = "@@iterator";
-    function b(e) {
+    var o = Le, l = Symbol.for("react.element"), u = Symbol.for("react.portal"), a = Symbol.for("react.fragment"), p = Symbol.for("react.strict_mode"), T = Symbol.for("react.profiler"), O = Symbol.for("react.provider"), y = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), b = Symbol.for("react.suspense"), f = Symbol.for("react.suspense_list"), R = Symbol.for("react.memo"), x = Symbol.for("react.lazy"), P = Symbol.for("react.offscreen"), $ = Symbol.iterator, I = "@@iterator";
+    function g(e) {
       if (e === null || typeof e != "object")
         return null;
       var r = $ && e[$] || e[I];
       return typeof r == "function" ? r : null;
     }
-    var E = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    var _ = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     function v(e) {
       {
         for (var r = arguments.length, t = new Array(r > 1 ? r - 1 : 0), n = 1; n < r; n++)
@@ -57,8 +57,8 @@ function vr() {
     }
     function k(e, r, t) {
       {
-        var n = E.ReactDebugCurrentFrame, f = n.getStackAddendum();
-        f !== "" && (r += "%s", t = t.concat([f]));
+        var n = _.ReactDebugCurrentFrame, d = n.getStackAddendum();
+        d !== "" && (r += "%s", t = t.concat([d]));
         var m = t.map(function(c) {
           return String(c);
         });
@@ -68,7 +68,7 @@ function vr() {
     var N = !1, z = !1, J = !1, ee = !1, M = !1, de;
     de = Symbol.for("react.module.reference");
     function We(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === a || e === w || M || e === p || e === g || e === d || ee || e === P || N || z || J || typeof e == "object" && e !== null && (e.$$typeof === x || e.$$typeof === T || e.$$typeof === O || e.$$typeof === h || e.$$typeof === i || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === a || e === T || M || e === p || e === b || e === f || ee || e === P || N || z || J || typeof e == "object" && e !== null && (e.$$typeof === x || e.$$typeof === R || e.$$typeof === O || e.$$typeof === y || e.$$typeof === i || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -78,8 +78,8 @@ function vr() {
       var n = e.displayName;
       if (n)
         return n;
-      var f = r.displayName || r.name || "";
-      return f !== "" ? t + "(" + f + ")" : t;
+      var d = r.displayName || r.name || "";
+      return d !== "" ? t + "(" + d + ")" : t;
     }
     function ve(e) {
       return e.displayName || "Context";
@@ -96,18 +96,18 @@ function vr() {
           return "Fragment";
         case u:
           return "Portal";
-        case w:
+        case T:
           return "Profiler";
         case p:
           return "StrictMode";
-        case g:
+        case b:
           return "Suspense";
-        case d:
+        case f:
           return "SuspenseList";
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case h:
+          case y:
             var r = e;
             return ve(r) + ".Consumer";
           case O:
@@ -115,11 +115,11 @@ function vr() {
             return ve(t._context) + ".Provider";
           case i:
             return Me(e, e.render, "ForwardRef");
-          case T:
+          case R:
             var n = e.displayName || null;
             return n !== null ? n : A(e.type) || "Memo";
           case x: {
-            var f = e, m = f._payload, c = f._init;
+            var d = e, m = d._payload, c = d._init;
             try {
               return A(c(m));
             } catch {
@@ -129,18 +129,18 @@ function vr() {
         }
       return null;
     }
-    var L = Object.assign, U = 0, pe, me, he, ye, be, ge, Re;
-    function Ee() {
+    var L = Object.assign, U = 0, pe, me, he, ye, be, ge, Ee;
+    function Re() {
     }
-    Ee.__reactDisabledLog = !0;
+    Re.__reactDisabledLog = !0;
     function Ye() {
       {
         if (U === 0) {
-          pe = console.log, me = console.info, he = console.warn, ye = console.error, be = console.group, ge = console.groupCollapsed, Re = console.groupEnd;
+          pe = console.log, me = console.info, he = console.warn, ye = console.error, be = console.group, ge = console.groupCollapsed, Ee = console.groupEnd;
           var e = {
             configurable: !0,
             enumerable: !0,
-            value: Ee,
+            value: Re,
             writable: !0
           };
           Object.defineProperties(console, {
@@ -184,21 +184,21 @@ function vr() {
               value: ge
             }),
             groupEnd: L({}, e, {
-              value: Re
+              value: Ee
             })
           });
         }
         U < 0 && v("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var re = E.ReactCurrentDispatcher, te;
+    var re = _.ReactCurrentDispatcher, te;
     function G(e, r, t) {
       {
         if (te === void 0)
           try {
             throw Error();
-          } catch (f) {
-            var n = f.stack.trim().match(/\n( *(at )?)/);
+          } catch (d) {
+            var n = d.stack.trim().match(/\n( *(at )?)/);
             te = n && n[1] || "";
           }
         return `
@@ -220,7 +220,7 @@ function vr() {
       }
       var n;
       ne = !0;
-      var f = Error.prepareStackTrace;
+      var d = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var m;
       m = re.current, re.current = null, Ye();
@@ -260,23 +260,23 @@ function vr() {
         if (D && n && typeof D.stack == "string") {
           for (var s = D.stack.split(`
 `), C = n.stack.split(`
-`), R = s.length - 1, _ = C.length - 1; R >= 1 && _ >= 0 && s[R] !== C[_]; )
-            _--;
-          for (; R >= 1 && _ >= 0; R--, _--)
-            if (s[R] !== C[_]) {
-              if (R !== 1 || _ !== 1)
+`), E = s.length - 1, w = C.length - 1; E >= 1 && w >= 0 && s[E] !== C[w]; )
+            w--;
+          for (; E >= 1 && w >= 0; E--, w--)
+            if (s[E] !== C[w]) {
+              if (E !== 1 || w !== 1)
                 do
-                  if (R--, _--, _ < 0 || s[R] !== C[_]) {
+                  if (E--, w--, w < 0 || s[E] !== C[w]) {
                     var S = `
-` + s[R].replace(" at new ", " at ");
+` + s[E].replace(" at new ", " at ");
                     return e.displayName && S.includes("<anonymous>") && (S = S.replace("<anonymous>", e.displayName)), typeof e == "function" && K.set(e, S), S;
                   }
-                while (R >= 1 && _ >= 0);
+                while (E >= 1 && w >= 0);
               break;
             }
         }
       } finally {
-        ne = !1, re.current = m, Be(), Error.prepareStackTrace = f;
+        ne = !1, re.current = m, Be(), Error.prepareStackTrace = d;
       }
       var B = e ? e.displayName || e.name : "", Fe = B ? G(B) : "";
       return typeof e == "function" && K.set(e, Fe), Fe;
@@ -296,28 +296,28 @@ function vr() {
       if (typeof e == "string")
         return G(e);
       switch (e) {
-        case g:
+        case b:
           return G("Suspense");
-        case d:
+        case f:
           return G("SuspenseList");
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
           case i:
             return Ve(e.render);
-          case T:
+          case R:
             return X(e.type, r, t);
           case x: {
-            var n = e, f = n._payload, m = n._init;
+            var n = e, d = n._payload, m = n._init;
             try {
-              return X(m(f), r, t);
+              return X(m(d), r, t);
             } catch {
             }
           }
         }
       return "";
     }
-    var Z = Object.prototype.hasOwnProperty, we = {}, Te = E.ReactDebugCurrentFrame;
+    var Z = Object.prototype.hasOwnProperty, we = {}, Te = _.ReactDebugCurrentFrame;
     function Q(e) {
       if (e) {
         var r = e._owner, t = X(e.type, e._source, r ? r.type : null);
@@ -325,7 +325,7 @@ function vr() {
       } else
         Te.setExtraStackFrame(null);
     }
-    function qe(e, r, t, n, f) {
+    function qe(e, r, t, n, d) {
       {
         var m = Function.call.bind(Z);
         for (var c in e)
@@ -337,10 +337,10 @@ function vr() {
                 throw C.name = "Invariant Violation", C;
               }
               s = e[c](r, c, n, t, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (R) {
-              s = R;
+            } catch (E) {
+              s = E;
             }
-            s && !(s instanceof Error) && (Q(f), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", n || "React class", t, c, typeof s), Q(null)), s instanceof Error && !(s.message in we) && (we[s.message] = !0, Q(f), v("Failed %s type: %s", t, s.message), Q(null));
+            s && !(s instanceof Error) && (Q(d), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", n || "React class", t, c, typeof s), Q(null)), s instanceof Error && !(s.message in we) && (we[s.message] = !0, Q(d), v("Failed %s type: %s", t, s.message), Q(null));
           }
       }
     }
@@ -368,7 +368,7 @@ function vr() {
       if (Ge(e))
         return v("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Je(e)), xe(e);
     }
-    var V = E.ReactCurrentOwner, Ke = {
+    var V = _.ReactCurrentOwner, Ke = {
       key: !0,
       ref: !0,
       __self: !0,
@@ -419,7 +419,7 @@ function vr() {
         });
       }
     }
-    var tr = function(e, r, t, n, f, m, c) {
+    var tr = function(e, r, t, n, d, m, c) {
       var s = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: l,
@@ -445,28 +445,28 @@ function vr() {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: f
+        value: d
       }), Object.freeze && (Object.freeze(s.props), Object.freeze(s)), s;
     };
-    function nr(e, r, t, n, f) {
+    function nr(e, r, t, n, d) {
       {
         var m, c = {}, s = null, C = null;
-        t !== void 0 && (Pe(t), s = "" + t), Ze(r) && (Pe(r.key), s = "" + r.key), Xe(r) && (C = r.ref, Qe(r, f));
+        t !== void 0 && (Pe(t), s = "" + t), Ze(r) && (Pe(r.key), s = "" + r.key), Xe(r) && (C = r.ref, Qe(r, d));
         for (m in r)
           Z.call(r, m) && !Ke.hasOwnProperty(m) && (c[m] = r[m]);
         if (e && e.defaultProps) {
-          var R = e.defaultProps;
-          for (m in R)
-            c[m] === void 0 && (c[m] = R[m]);
+          var E = e.defaultProps;
+          for (m in E)
+            c[m] === void 0 && (c[m] = E[m]);
         }
         if (s || C) {
-          var _ = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
-          s && er(c, _), C && rr(c, _);
+          var w = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
+          s && er(c, w), C && rr(c, w);
         }
-        return tr(e, s, C, f, n, V.current, c);
+        return tr(e, s, C, d, n, V.current, c);
       }
     }
-    var ie = E.ReactCurrentOwner, ke = E.ReactDebugCurrentFrame;
+    var ie = _.ReactCurrentOwner, ke = _.ReactDebugCurrentFrame;
     function Y(e) {
       if (e) {
         var r = e._owner, t = X(e.type, e._source, r ? r.type : null);
@@ -540,9 +540,9 @@ Check the top-level render call using <` + t + ">.");
         else if (ue(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var f = b(e);
-          if (typeof f == "function" && f !== e.entries)
-            for (var m = f.call(e), c; !(c = m.next()).done; )
+          var d = g(e);
+          if (typeof d == "function" && d !== e.entries)
+            for (var m = d.call(e), c; !(c = m.next()).done; )
               ue(c.value) && Ne(c.value, r);
         }
       }
@@ -557,7 +557,7 @@ Check the top-level render call using <` + t + ">.");
           t = r.propTypes;
         else if (typeof r == "object" && (r.$$typeof === i || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
-        r.$$typeof === T))
+        r.$$typeof === R))
           t = r.propTypes;
         else
           return;
@@ -566,8 +566,8 @@ Check the top-level render call using <` + t + ">.");
           qe(t, e.props, "prop", n, e);
         } else if (r.PropTypes !== void 0 && !se) {
           se = !0;
-          var f = A(r);
-          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", f || "Unknown");
+          var d = A(r);
+          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", d || "Unknown");
         }
         typeof r.getDefaultProps == "function" && !r.getDefaultProps.isReactClassApproved && v("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
@@ -584,20 +584,20 @@ Check the top-level render call using <` + t + ">.");
         e.ref !== null && (Y(e), v("Invalid attribute `ref` supplied to `React.Fragment`."), Y(null));
       }
     }
-    function De(e, r, t, n, f, m) {
+    function De(e, r, t, n, d, m) {
       {
         var c = We(e);
         if (!c) {
           var s = "";
           (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (s += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var C = ar(f);
+          var C = ar(d);
           C ? s += C : s += Se();
-          var R;
-          e === null ? R = "null" : ae(e) ? R = "array" : e !== void 0 && e.$$typeof === l ? (R = "<" + (A(e.type) || "Unknown") + " />", s = " Did you accidentally export a JSX literal instead of a component?") : R = typeof e, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", R, s);
+          var E;
+          e === null ? E = "null" : ae(e) ? E = "array" : e !== void 0 && e.$$typeof === l ? (E = "<" + (A(e.type) || "Unknown") + " />", s = " Did you accidentally export a JSX literal instead of a component?") : E = typeof e, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", E, s);
         }
-        var _ = nr(e, r, t, f, m);
-        if (_ == null)
-          return _;
+        var w = nr(e, r, t, d, m);
+        if (w == null)
+          return w;
         if (c) {
           var S = r.children;
           if (S !== void 0)
@@ -611,7 +611,7 @@ Check the top-level render call using <` + t + ">.");
             else
               Ae(S, e);
         }
-        return e === a ? sr(_) : ir(_), _;
+        return e === a ? sr(w) : ir(w), w;
       }
     }
     function ur(e, r, t) {
@@ -626,37 +626,37 @@ Check the top-level render call using <` + t + ">.");
 }
 process.env.NODE_ENV === "production" ? le.exports = dr() : le.exports = vr();
 var fe = le.exports;
-const pr = fe.Fragment, y = fe.jsx, W = fe.jsxs;
+const pr = fe.Fragment, h = fe.jsx, W = fe.jsxs;
 const yr = ({
   height: o = "7px",
   width: l = "300px",
   riderColor: u = "#343434",
   trackColor: a = "#fff",
   withProgress: p = !0,
-  percentage: w = 0,
+  percentage: T = 0,
   maxPercentage: O = 100,
-  style: h
+  style: y
 }) => {
-  const i = j(null), g = j(null);
+  const i = j(null), b = j(null);
   F(() => {
-    var T, x;
-    u && ((T = i.current) == null || T.style.setProperty("--riderColor", u)), a && ((x = i.current) == null || x.style.setProperty("--trackColor", a));
+    var R, x;
+    u && ((R = i.current) == null || R.style.setProperty("--riderColor", u)), a && ((x = i.current) == null || x.style.setProperty("--trackColor", a));
   }, [u, a, i.current]);
-  const d = w / O * 100;
-  return /* @__PURE__ */ y(
+  const f = T / O * 100;
+  return /* @__PURE__ */ h(
     "div",
     {
       className: "hdui-linear-loader loader-container",
-      style: { height: o, width: l, ...h },
+      style: { height: o, width: l, ...y },
       ref: i,
-      children: /* @__PURE__ */ y("div", { className: "linear-loader-surface", children: /* @__PURE__ */ y(
+      children: /* @__PURE__ */ h("div", { className: "linear-loader-surface", children: /* @__PURE__ */ h(
         "div",
         {
           className: "linear-loader-animated-surface",
-          ref: g,
+          ref: b,
           "data-type": p ? "progress" : "loader",
           style: p ? {
-            width: `${d >= 0 ? d : d >= 100 ? 100 : 0}%`
+            width: `${f >= 0 ? f : f >= 100 ? 100 : 0}%`
           } : {}
         }
       ) })
@@ -669,43 +669,53 @@ const yr = ({
   trackWidth: a = 10,
   riderWidth: p = 10
 }) => {
-  const w = j(null);
+  const T = j(null);
   F(() => {
-    var h, i;
-    if (w.current) {
-      const g = ((i = (h = w.current) == null ? void 0 : h.getTotalLength) == null ? void 0 : i.call(h)) || 0;
-      w.current.style.setProperty(
+    var y, i, b, f;
+    if (T.current) {
+      const R = ((f = (b = (i = (y = T.current) == null ? void 0 : y.getElementsByClassName("cover")) == null ? void 0 : i[0]) == null ? void 0 : b.getTotalLength) == null ? void 0 : f.call(b)) || 0;
+      T.current.style.setProperty(
         "--dasharray",
-        g.toFixed(2) + "px"
+        R.toFixed(2) + "px"
       );
     }
   }, [o]);
   const O = a > p ? a : p;
-  return /* @__PURE__ */ y("div", { className: "hdui-circular-loader loader-container", children: /* @__PURE__ */ W("svg", { className: "circular-loader-surface", width: o, height: o, children: [
-    /* @__PURE__ */ y(
-      "circle",
-      {
-        cx: "50%",
-        cy: "50%",
-        r: `${50 - O}%`,
-        stroke: l,
-        style: { strokeWidth: `${a}%` }
-      }
-    ),
-    /* @__PURE__ */ y(
-      "circle",
-      {
-        cx: "50%",
-        cy: "50%",
-        r: `${50 - O}%`,
-        className: "cover",
-        stroke: u || "rgb(52, 52, 52)",
-        style: { strokeWidth: `${p}%` },
-        ref: w
-      }
-    ),
-    /* @__PURE__ */ y("div", { className: "circular-loader-animated-surface", children: "H" })
-  ] }) });
+  return /* @__PURE__ */ h("div", { className: "hdui-circular-loader loader-container", children: /* @__PURE__ */ W(
+    "svg",
+    {
+      className: "circular-loader-surface",
+      width: o,
+      height: o,
+      ref: T,
+      children: [
+        /* @__PURE__ */ h(
+          "circle",
+          {
+            cx: "50%",
+            cy: "50%",
+            r: `${50 - O}%`,
+            stroke: l,
+            style: { strokeWidth: `${a}%` },
+            strokeLinecap: "round"
+          }
+        ),
+        /* @__PURE__ */ h(
+          "circle",
+          {
+            strokeLinecap: "round",
+            cx: "50%",
+            cy: "50%",
+            r: `${50 - O}%`,
+            className: "cover",
+            stroke: u || "rgb(52, 52, 52)",
+            style: { strokeWidth: `${p}%` }
+          }
+        ),
+        /* @__PURE__ */ h("div", { className: "circular-loader-animated-surface", children: "H" })
+      ]
+    }
+  ) });
 };
 const gr = ({ ballColor: o, style: l = {} }) => {
   const u = j(null);
@@ -721,20 +731,20 @@ const gr = ({ ballColor: o, style: l = {} }) => {
       ref: u,
       style: l,
       children: [
-        /* @__PURE__ */ y("div", { className: "ball" }),
-        /* @__PURE__ */ y("div", { className: "ball" }),
-        /* @__PURE__ */ y("div", { className: "ball" }),
-        /* @__PURE__ */ y("div", { className: "ball" })
+        /* @__PURE__ */ h("div", { className: "ball" }),
+        /* @__PURE__ */ h("div", { className: "ball" }),
+        /* @__PURE__ */ h("div", { className: "ball" }),
+        /* @__PURE__ */ h("div", { className: "ball" })
       ]
     }
   );
 };
-const Rr = ({
+const Er = ({
   onOpen: o,
   onClose: l,
   strokeColor: u = "rgb(125,125,125)"
 }) => /* @__PURE__ */ W("div", { className: "hd-ui-hamurger hamburger-container", children: [
-  /* @__PURE__ */ y(
+  /* @__PURE__ */ h(
     "input",
     {
       type: "checkbox",
@@ -747,21 +757,21 @@ const Rr = ({
     }
   ),
   /* @__PURE__ */ W("label", { className: "container__inner", htmlFor: "ham-menu1", children: [
-    /* @__PURE__ */ y(
+    /* @__PURE__ */ h(
       "div",
       {
         className: "stroke1 stroke",
         style: { backgroundColor: u }
       }
     ),
-    /* @__PURE__ */ y(
+    /* @__PURE__ */ h(
       "div",
       {
         className: "stroke2 stroke",
         style: { backgroundColor: u }
       }
     ),
-    /* @__PURE__ */ y(
+    /* @__PURE__ */ h(
       "div",
       {
         className: "stroke3 stroke",
@@ -776,57 +786,57 @@ const mr = ({
   style: u,
   optionLayerStyle: a,
   selectedOptionStyle: p,
-  defaultValue: w,
+  defaultValue: T,
   actionType: O,
-  ...h
+  ...y
 }) => {
   var I;
-  const [i, g] = ce(!1), [d, T] = ce(), x = j(null), P = Array.isArray(o) ? o.length : 1;
+  const [i, b] = ce(!1), [f, R] = ce(), x = j(null), P = Array.isArray(o) ? o.length : 1;
   return F(() => {
-    var b, E, v, k, N, z;
+    var g, _, v, k, N, z;
     if (Array.isArray(o)) {
       let J = 0;
       for (const [ee, M] of o.entries())
-        if (w === M.props.value || M.props.selected) {
-          J = ee, T({
+        if (T === M.props.value || M.props.selected) {
+          J = ee, R({
             layout: M.props.children,
             value: M.props.value
           });
           break;
         }
-      (v = (E = (b = x.current) == null ? void 0 : b.children) == null ? void 0 : E[J]) == null || v.setAttribute(
+      (v = (_ = (g = x.current) == null ? void 0 : g.children) == null ? void 0 : _[J]) == null || v.setAttribute(
         "selected",
         ""
       );
     } else
       (z = (N = (k = x.current) == null ? void 0 : k.children) == null ? void 0 : N[0]) == null || z.setAttribute("selected", "");
-  }, [o]), i && ((I = x.current) == null || I.focus()), /* @__PURE__ */ y("div", { className: "hd-ui-dropdown dropdown-container", ...h, children: /* @__PURE__ */ W(
+  }, [o]), i && ((I = x.current) == null || I.focus()), /* @__PURE__ */ h("div", { className: "hd-ui-dropdown dropdown-container", ...y, children: /* @__PURE__ */ W(
     "div",
     {
       className: `dropdown-container-set${O === "hover" ? " mouseover" : ""}`,
-      onClick: (b) => {
-        var E, v, k;
-        if (b.target instanceof HTMLDivElement && b.target.ariaLabel === "option") {
-          const N = b.target.dataset.value || ((E = b.target.textContent) == null ? void 0 : E.trim()) || "";
-          (d == null ? void 0 : d.value) !== N && (T({
-            layout: b.target.innerHTML || N,
+      onClick: (g) => {
+        var _, v, k;
+        if (g.target instanceof HTMLDivElement && g.target.ariaLabel === "option") {
+          const N = g.target.dataset.value || ((_ = g.target.textContent) == null ? void 0 : _.trim()) || "";
+          (f == null ? void 0 : f.value) !== N && (R({
+            layout: g.target.innerHTML || N,
             value: N
-          }), (k = (v = b.target.parentElement) == null ? void 0 : v.querySelector("[selected]")) == null || k.removeAttribute("selected"), b.target.setAttribute("selected", ""), l == null || l(N)), g(!1);
+          }), (k = (v = g.target.parentElement) == null ? void 0 : v.querySelector("[selected]")) == null || k.removeAttribute("selected"), g.target.setAttribute("selected", ""), l == null || l(N)), b(!1);
         } else
-          g(!0);
+          b(!0);
       },
       "aria-hidden": !i,
       style: u,
       children: [
-        /* @__PURE__ */ y("div", { className: "dropdown-button", style: p, children: (d == null ? void 0 : d.layout) || "--Select--" }),
-        /* @__PURE__ */ y(
+        /* @__PURE__ */ h("div", { className: "dropdown-button", style: p, children: (f == null ? void 0 : f.layout) || "--Select--" }),
+        /* @__PURE__ */ h(
           "div",
           {
             className: "dropdown-layer",
             style: { height: `${P * 100}%`, ...a },
             ref: x,
             tabIndex: 0,
-            onBlur: () => g(!1),
+            onBlur: () => b(!1),
             children: o
           }
         )
@@ -839,7 +849,7 @@ mr.Option = ({
   value: l,
   selected: u = !1,
   ...a
-}) => /* @__PURE__ */ y(
+}) => /* @__PURE__ */ h(
   "div",
   {
     className: "hd-ui-dropdown-option",
@@ -850,21 +860,21 @@ mr.Option = ({
     children: o
   }
 );
-const Er = ({ containerStyle: o, children: l, torchStyle: u }) => {
+const Rr = ({ containerStyle: o, children: l, torchStyle: u }) => {
   const a = j(null);
   return F(() => {
-    var h, i, g;
+    var y, i, b;
     if (u)
       try {
-        u.size && ((i = (h = a.current) == null ? void 0 : h.style) == null || i.setProperty(
+        u.size && ((i = (y = a.current) == null ? void 0 : y.style) == null || i.setProperty(
           "width",
           `${(Number(u.size) * 100).toFixed(2)}%`
-        )), u.color && ((g = a.current) == null || g.style.setProperty(
+        )), u.color && ((b = a.current) == null || b.style.setProperty(
           "background-color",
           u.color
         ));
-      } catch (d) {
-        console.error(d), console.log("Incorrect style format for `torchStyle` prop");
+      } catch (f) {
+        console.error(f), console.log("Incorrect style format for `torchStyle` prop");
       }
   }, [a.current, u]), /* @__PURE__ */ W(
     "div",
@@ -876,22 +886,22 @@ const Er = ({ containerStyle: o, children: l, torchStyle: u }) => {
       onMouseOut: () => {
         a.current && (a.current.style.visibility = "hidden", a.current.style.opacity = "0");
       },
-      onMouseMove: (h) => {
-        h.stopPropagation();
-        const { top: i, left: g } = h.currentTarget.getBoundingClientRect();
+      onMouseMove: (y) => {
+        y.stopPropagation();
+        const { top: i, left: b } = y.currentTarget.getBoundingClientRect();
         a.current && a.current.animate(
           {
-            left: `${h.clientX - g}px`,
-            top: `${h.clientY - i}px`
+            left: `${y.clientX - b}px`,
+            top: `${y.clientY - i}px`
           },
           { duration: 500, fill: "forwards" }
         );
       },
       style: o,
       children: [
-        /* @__PURE__ */ y("div", { ref: a, className: "torch-shadow" }),
-        /* @__PURE__ */ y("div", { className: "torch-shadow-overlay" }),
-        /* @__PURE__ */ y("div", { className: "torch-box-container__child-container", children: l })
+        /* @__PURE__ */ h("div", { ref: a, className: "torch-shadow" }),
+        /* @__PURE__ */ h("div", { className: "torch-shadow-overlay" }),
+        /* @__PURE__ */ h("div", { className: "torch-box-container__child-container", children: l })
       ]
     }
   );
@@ -902,17 +912,17 @@ const _r = ({
   showBackdrop: u = !0,
   keepModalCentered: a = !0,
   TransitionStyle: p = "fade",
-  children: w,
+  children: T,
   closeOnBlur: O = !0,
-  closeOnBackDropClick: h = !0,
+  closeOnBackDropClick: y = !0,
   triggerElement: i,
-  modalStyle: g,
-  ...d
+  modalStyle: b,
+  ...f
 }) => {
-  const [T, x] = ce(!1), P = j(null), $ = j(null);
+  const [R, x] = ce(!1), P = j(null), $ = j(null);
   F(() => {
-    var b, E;
-    o && x(!0), !o && p !== "none" && ((b = $.current) == null || b.style.removeProperty("animation"), (E = P.current) == null || E.style.removeProperty("animation"), setTimeout(() => {
+    var g, _;
+    o && x(!0), !o && p !== "none" && ((g = $.current) == null || g.style.removeProperty("animation"), (_ = P.current) == null || _.style.removeProperty("animation"), setTimeout(() => {
       var v, k;
       (v = $.current) == null || v.style.setProperty(
         "animation",
@@ -923,30 +933,30 @@ const _r = ({
       );
     }, 0)), p === "none" && I();
   }, [o, p, $, P]), F(() => {
-    var b;
-    o && ((b = P.current) == null || b.focus());
-  }, [o, T, P.current]), F(() => {
+    var g;
+    o && ((g = P.current) == null || g.focus());
+  }, [o, R, P.current]), F(() => {
     if (!a && (i != null && i.current) && P.current) {
-      const b = P.current.offsetWidth, E = P.current.offsetHeight;
+      const g = P.current.offsetWidth, _ = P.current.offsetHeight;
       let { left: v, top: k } = i.current.getBoundingClientRect();
-      v + b > window.innerWidth && (v = window.innerWidth - b - 10), k + E > window.innerHeight && (k = window.innerHeight - E - 10), P.current.style.setProperty("left", `${v}px`), P.current.style.setProperty("top", `${k}px`);
+      v + g > window.innerWidth && (v = window.innerWidth - g - 10), k + _ > window.innerHeight && (k = window.innerHeight - _ - 10), P.current.style.setProperty("left", `${v}px`), P.current.style.setProperty("top", `${k}px`);
     }
   });
   const I = () => {
     o || (x(!1), l == null || l());
   };
-  return /* @__PURE__ */ y(pr, { children: T && /* @__PURE__ */ W("div", { className: "hd-ui-modal modal-container", children: [
-    u && /* @__PURE__ */ y(
+  return /* @__PURE__ */ h(pr, { children: R && /* @__PURE__ */ W("div", { className: "hd-ui-modal modal-container", children: [
+    u && /* @__PURE__ */ h(
       "div",
       {
         className: "hd-ui-modal-overlay",
         "data-visible": u,
         ref: $,
-        onClick: h ? l : void 0,
+        onClick: y ? l : void 0,
         style: p !== "none" ? { animation: "fade 400ms ease" } : {}
       }
     ),
-    /* @__PURE__ */ y(
+    /* @__PURE__ */ h(
       "div",
       {
         className: "modal-child-container",
@@ -956,19 +966,19 @@ const _r = ({
           maxWidth: `${window.innerWidth}px`,
           maxHeight: `${window.innerHeight}px`,
           animation: `${p} 300ms ease`,
-          ...g
+          ...b
         },
         ref: P,
         onAnimationEnd: I,
         tabIndex: 0,
-        onBlur: O ? (b) => {
-          const E = b.currentTarget;
+        onBlur: O ? (g) => {
+          const _ = g.currentTarget;
           setTimeout(() => {
-            E.contains(document.activeElement) || l();
+            _.contains(document.activeElement) || l();
           }, 0);
         } : void 0,
-        ...d,
-        children: w
+        ...f,
+        children: T
       }
     )
   ] }) });
@@ -978,13 +988,13 @@ const _r = ({
   endOfData: u
 }) => {
   const a = j(null), p = j(
-    new IntersectionObserver(([w]) => {
-      w.isIntersecting && l && l();
+    new IntersectionObserver(([T]) => {
+      T.isIntersecting && l && l();
     })
   );
   return F(() => {
     a.current && p.current.observe(a.current);
-  }, []), /* @__PURE__ */ y(
+  }, []), /* @__PURE__ */ h(
     "div",
     {
       className: "hd-ui-lazy-loader lazy-loader-container",
@@ -997,9 +1007,9 @@ export {
   gr as BouncyBalls,
   br as CircularLoader,
   mr as DropDown,
-  Rr as HamBurger,
+  Er as HamBurger,
   wr as LazyLoader,
   yr as LinearLoader,
   _r as Modal,
-  Er as TorchBox
+  Rr as TorchBox
 };
