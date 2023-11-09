@@ -8,6 +8,7 @@ type CircularLoaderProps = {
   trackColor?: CSSColor;
   trackWidth?: number;
   riderWidth?: number;
+  style?: React.CSSProperties;
 };
 
 const CircularLoader = ({
@@ -16,10 +17,12 @@ const CircularLoader = ({
   riderColor,
   trackWidth = 10,
   riderWidth = 10,
+  style,
 }: CircularLoaderProps) => {
-  const loader = useRef<SVGSVGElement>(null);
+  const loader = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (loader.current) {
+    if (loader.current && getComputedStyle(loader.current).display !== "none") {
+      console.log(getComputedStyle(loader.current).display);
       const dasharray: number =
         loader.current
           ?.getElementsByClassName("cover")?.[0]
@@ -33,13 +36,12 @@ const CircularLoader = ({
   }, [size]);
   const largerWidth = trackWidth > riderWidth ? trackWidth : riderWidth;
   return (
-    <div className="hdui-circular-loader loader-container">
-      <svg
-        className="circular-loader-surface"
-        width={size}
-        height={size}
-        ref={loader}
-      >
+    <div
+      className="hdui-circular-loader loader-container"
+      style={style}
+      ref={loader}
+    >
+      <svg className="circular-loader-surface" width={size} height={size}>
         <circle
           cx="50%"
           cy="50%"
