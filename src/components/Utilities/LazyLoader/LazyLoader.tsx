@@ -1,13 +1,14 @@
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
+import { CircularLoader } from "../../loaders";
 
 interface LazyLoaderProps {
-  Loader?: JSX.Element;
+  Loader?: any;
   onVisibleHandler?: () => void;
   endOfData: boolean;
 }
 
 const LazyLoader = ({
-  Loader,
+  Loader = <CircularLoader size={39} />,
   onVisibleHandler,
   endOfData,
 }: LazyLoaderProps) => {
@@ -28,6 +29,9 @@ const LazyLoader = ({
       observer.current?.disconnect();
     };
   }, []);
+  if (endOfData) {
+    observer.current?.disconnect();
+  }
 
   return (
     <div

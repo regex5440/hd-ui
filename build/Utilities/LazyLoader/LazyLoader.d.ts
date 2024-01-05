@@ -1,5 +1,5 @@
 interface LazyLoaderProps {
-    Loader?: JSX.Element;
+    Loader?: any;
     onVisibleHandler?: () => void;
     endOfData: boolean;
 }
