@@ -16,30 +16,37 @@ const LazyLoader = ({
   const observer = useRef(
     new IntersectionObserver(([entries]) => {
       if (entries.isIntersecting) {
-        onVisibleHandler && onVisibleHandler();
+        console.log("Hello");
+        onVisibleHandler?.();
       }
     }),
   );
 
   useEffect(() => {
     if (observableElement.current) {
+      observer.current = new IntersectionObserver(([entries]) => {
+        if (entries.isIntersecting) {
+          onVisibleHandler?.();
+        }
+      });
       observer.current.observe(observableElement.current);
     }
     () => {
       observer.current?.disconnect();
     };
-  }, []);
-  if (endOfData) {
-    observer.current?.disconnect();
-  }
+  }, [endOfData]);
 
   return (
-    <div
-      className="hd-ui-lazy-loader lazy-loader-container"
-      ref={observableElement}
-    >
-      {!endOfData && Loader}
-    </div>
+    <>
+      {!endOfData && (
+        <div
+          className="hd-ui-lazy-loader lazy-loader-container"
+          ref={observableElement}
+        >
+          {Loader}
+        </div>
+      )}
+    </>
   );
 };
 

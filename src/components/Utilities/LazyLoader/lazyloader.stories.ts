@@ -15,5 +15,8 @@ export default meta;
 export const Default: StoryObj<typeof meta> = {
   args: {
     endOfData: false,
+    onVisibleHandler: () => {
+      console.log("Visible");
+    },
   },
 };
