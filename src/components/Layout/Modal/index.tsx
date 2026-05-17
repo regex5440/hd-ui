@@ -17,7 +17,7 @@ export interface ModalProps {
   children?: any;
   closeOnBlur?: boolean;
   closeOnBackDropClick?: boolean;
-  triggerElement?: React.RefObject<HTMLElement>;
+  triggerElement?: React.RefObject<HTMLElement | null>;
   modalStyle?: React.CSSProperties;
 }
 const Modal = ({
