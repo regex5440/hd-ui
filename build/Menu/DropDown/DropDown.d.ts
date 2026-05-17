@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement } from "react";
+import { CSSProperties, ReactElement } from 'react';
 type DropDownOptionProp = {
     children: any;
     value: string;

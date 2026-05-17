@@ -1,5 +1,5 @@
-import React from "react";
-import { CSSColor } from "src/utils/types";
+import { default as React } from 'react';
+import { CSSColor } from '../../../utils/types';
 type CircularLoaderProps = {
     size: number;
     riderColor?: CSSColor;

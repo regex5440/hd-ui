@@ -1,4 +1,4 @@
-import React from "react";
+import { default as React } from 'react';
 export interface ModalProps {
     open: boolean;
     closeHandler: () => void;
@@ -9,7 +9,7 @@ export interface ModalProps {
     children?: any;
     closeOnBlur?: boolean;
     closeOnBackDropClick?: boolean;
-    triggerElement?: React.RefObject<HTMLElement>;
+    triggerElement?: React.RefObject<HTMLElement | null>;
     modalStyle?: React.CSSProperties;
 }
 declare const Modal: ({ open, closeHandler, showBackdrop, keepModalCentered, TransitionStyle, children, closeOnBlur, closeOnBackDropClick, triggerElement, modalStyle, ...restProps }: ModalProps) => import("react/jsx-runtime").JSX.Element;

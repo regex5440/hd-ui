@@ -7,22 +7,20 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "es6",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "declaration": true,
     "skipLibCheck": true,
-    "esModuleInterop": false,
     "declarationMap": true,
-    "baseUrl": ".",
     "paths": {
-      "hd-ui": ["src/components/index.tsx"]
-    },
-    "typeRoots": ["node_modules/@types", "src/components/index.d.ts"]
+      "hd-ui": ["./src/components/index.tsx"],
+      "src/*": ["./src/*"]
+    }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "vite.config.ts"],
+  "exclude": ["**/*.s[c|a]ss"]
 }

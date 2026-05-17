@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent } from 'react';
 type HamBurgerProps = {
     onOpen?: (event: ChangeEvent<HTMLInputElement>) => void;
     onClose?: (event: ChangeEvent<HTMLInputElement>) => void;

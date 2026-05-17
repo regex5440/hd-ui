@@ -1,4 +1,4 @@
-import HamBurger from "./HamBurger/HamBurger";
-import DropDown from "./DropDown/DropDown";
+import { default as HamBurger } from './HamBurger/HamBurger';
+import { default as DropDown } from './DropDown/DropDown';
 export { HamBurger, DropDown };
 //# sourceMappingURL=index.d.ts.map
