@@ -21,6 +21,7 @@ export default defineConfig((configEnv) => ({
     }),
     dts({
       include: ["src/components/"],
+      entryRoot: "src/components/",
     }),
   ],
   build: {
