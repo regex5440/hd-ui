@@ -19,8 +19,8 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "react": "^19.2.14",
-    "react-dom": "^19.2.3"
+    "react": ">=19.2.14",
+    "react-dom": ">=19.2.3"
   },
   "devDependencies": {
     "@storybook/addon-docs": "10.4.0",
