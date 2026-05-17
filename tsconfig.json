@@ -19,8 +19,7 @@
     "paths": {
       "hd-ui": ["./src/components/index.tsx"],
       "src/*": ["./src/*"]
-    },
-    "typeRoots": ["node_modules/@types", "src/components/index.d.ts"]
+    }
   },
   "include": ["src"],
   "exclude": ["**/*.s[c|a]ss"]

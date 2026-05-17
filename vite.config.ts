@@ -10,8 +10,14 @@ export default defineConfig((configEnv) => ({
   plugins: [
     react(),
     linterPlugin({
-      include: ["./src}/**/*.{ts,tsx}"],
-      linters: [new EsLinter({ configEnv })],
+      include: ["./src/**/*.{ts,tsx}"],
+      linters: [
+        new EsLinter({
+          configEnv,
+          buildOptions: { overrideConfigFile: ".eslintrc.cjs" },
+          serveOptions: { overrideConfigFile: ".eslintrc.cjs" },
+        }),
+      ],
     }),
     dts({
       include: ["src/components/"],
@@ -28,13 +34,6 @@ export default defineConfig((configEnv) => ({
       external: [...Object.keys(packageJson.peerDependencies)],
     },
   },
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       api
-  //     },
-  //   },
-  // },
   server: {
     port: 8080,
   },
