@@ -5,7 +5,7 @@
 > - Have TS support
 ### Requisites
 ```
-Latest node >= 18.14
+Latest node >= 24.13.1
 ```
 
 ### Available Scripts
