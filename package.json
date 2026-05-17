@@ -55,6 +55,6 @@
       "import": "./build/index.es.js",
       "require": "./build/index.umd.js"
     },
-    "./build/style.css": "./build/style.css"
+    "./build/style.css": "./build/hd-ui.css"
   }
 }
