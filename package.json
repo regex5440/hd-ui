@@ -15,6 +15,7 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "build": "tsc && vite build",
+    "prepare": "npm run build",
     "preview": "vite preview",
     "build-storybook": "storybook build"
   },
@@ -55,6 +56,6 @@
       "import": "./build/index.es.js",
       "require": "./build/index.umd.js"
     },
-    "./build/style.css": "./build/hd-ui.css"
+    "./build/hd-ui.css": "./build/hd-ui.css"
   }
 }

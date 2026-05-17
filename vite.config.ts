@@ -32,7 +32,19 @@ export default defineConfig((configEnv) => ({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
+      external: [
+        ...Object.keys(packageJson.peerDependencies),
+        "react/jsx-runtime",
+        "react/jsx-dev-runtime",
+        "react/jsx-runtime.js",
+        "react/jsx-dev-runtime.js",
+      ],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
   server: {
